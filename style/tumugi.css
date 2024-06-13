@@ -1,0 +1,50 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+div.container-m {
+    margin-top: 80px;
+}
+.navbar-brand {
+    background-size: contain;
+}
+.relative {
+    position: relative;
+    width: 500px;
+    height: auto;
+}
+.service-image {
+    margin-bottom: 3em;
+}
+.tumugi-motto {
+    margin-top: 5em;
+}
+.tumugi-motto h3 {
+    margin-top: 2em;
+    font-size: 50px;
+}
+.tumugi-motto h4 {
+    font-size: 20px;
+}
+.discord-btn {
+    color: white;
+    width: 150px;
+    padding: 10px;
+    background-color: #5865f2;
+    margin-top: 1em;
+    font-weight: bold;
+}
+.discord-btn:hover {
+    color: white;
+    width: 150px;
+    padding: 10px;
+    background-color: #404bc5;
+}
+.function-introduction {
+    margin-top: 5em;
+}
+.footer {
+    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+}
