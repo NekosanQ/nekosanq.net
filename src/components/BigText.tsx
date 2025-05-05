@@ -45,6 +45,10 @@ const BigText: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.3, duration: 0.6 }}
+                whileHover={{
+                  scale: 1.1,
+                  boxShadow: '0 10px 30px rgba(255, 255, 255, 0.7)'
+                }}
                 className="bg-transparent text-white p-6 rounded-2xl w-48 h-16 flex items-center justify-center text-center sm:w-44
                      border-2 border-white shadow-lg shadow-white/15"
               >
