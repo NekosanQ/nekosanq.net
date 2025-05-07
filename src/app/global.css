@@ -14,3 +14,14 @@
     U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* 他の unicode-range の @font-face は省略可（最小構成） */
+
+@layer utilities {
+  @keyframes starMove {
+    from {
+      transform: translateX(0px);
+    }
+    to {
+      transform: translateX(-2000px);
+    }
+  }
+}
