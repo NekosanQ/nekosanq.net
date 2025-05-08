@@ -14,7 +14,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <img src="/NekosanQ-Network.svg" alt="NekosanQ-Network-Logo" className="h-10 w-auto text-white filter invert" />
-            <span className="text-4xl font-bold text-white font-caveat">NekosanQ Network</span>
+            <span className="text-4xl font-normal text-white font-caveat">NekosanQ Network</span>
           </div>
 
           {/* Desktop Menu */}

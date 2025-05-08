@@ -9,7 +9,7 @@ const BigText: React.FC = () => {
   const [showEtc, setShowEtc] = useState(false);
 
   return (
-    <div className="text-center text-white text-5xl font-bold mt-40 font-caveat">
+    <div className="text-center text-white text-5xl mt-40 font-caveat">
       {/* First Typed Message */}
       <ReactTyped
         strings={['Welcome to <br/>NekosanQ Network!']}
@@ -38,7 +38,7 @@ const BigText: React.FC = () => {
       )}
       {/* Animation Cards */}
       {showCards && (
-        <div className="mt-16 space-y-6 text-4xl font-normal">
+        <div className="mt-16 space-y-6 text-3xl font-normal font-caveat">
           <div className="flex flex-wrap justify-center gap-6">
             {['Programming', 'Game(many)', 'Drums', 'Beatbox'].map((title, i) => (
               <motion.div
