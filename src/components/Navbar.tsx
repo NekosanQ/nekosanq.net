@@ -1,6 +1,8 @@
 'use client';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faCircleUser, faCircleNodes, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,24 +15,24 @@ const Navbar = () => {
         <div className="flex justify-between h-20 items-center">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <img src="/NekosanQ-Network.svg" alt="NekosanQ-Network-Logo" className="h-10 w-auto text-white filter invert" />
-            <span className="text-4xl font-normal text-white font-caveat">NekosanQ Network</span>
+            <img src="/NekosanQ-Network.svg" alt="NekosanQ-Network-Logo" className="h-12 w-auto text-white filter invert" />
           </div>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-10 text-2xl">
-            <a href="#" className="text-white hover:text-blue-400 transition font-caveat">
-              Home
-            </a>
-            <a href="#" className="text-white hover:text-blue-400 transition font-caveat">
-              About
-            </a>
-            <a href="#" className="text-white hover:text-blue-400 transition font-caveat">
-              Service
-            </a>
-            <a href="#" className="text-white hover:text-blue-400 transition font-caveat">
-              Contact
-            </a>
+          <div className="hidden md:flex space-x-10 text-lg leading-none">
+            {[
+              { name: 'Home', icon: faHome },
+              { name: 'About', icon: faCircleUser },
+              { name: 'Service', icon: faCircleNodes },
+              { name: 'Contact', icon: faEnvelope }
+            ].map((item) => (
+              <a
+                key={item.name}
+                href="#"
+                className="relative flex items-center space-x-2 text-white font-normal after:content-[''] after:absolute after:left-0 after:bottom-[-3px] after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+              >
+              <FontAwesomeIcon icon={item.icon} className="text-base" />
+              <span>{item.name}</span>
+              </a>
+            ))}
           </div>
 
           {/* Mobile Button */}
@@ -46,16 +48,16 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden shadow-md">
           <div className="flex flex-col px-4 py-2 space-y-2 text-xl">
-            <a href="#" className="text-white hover:text-blue-400 transition font-caveat">
+            <a href="#" className="text-white hover:text-blue-400 transition">
               Home
             </a>
-            <a href="#" className="text-white hover:text-blue-400 transition font-caveat">
+            <a href="#" className="text-white hover:text-blue-400 transition">
               About
             </a>
-            <a href="#" className="text-white hover:text-blue-400 transition font-caveat">
+            <a href="#" className="text-white hover:text-blue-400 transition">
               Service
             </a>
-            <a href="#" className="text-white hover:text-blue-400 transition font-caveat">
+            <a href="#" className="text-white hover:text-blue-400 transition">
               Contact
             </a>
           </div>

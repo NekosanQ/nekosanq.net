@@ -46,5 +46,4 @@ const StarBackground: React.FC = () => {
   );
 };
 
-
 export default StarBackground;

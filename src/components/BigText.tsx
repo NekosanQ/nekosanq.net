@@ -12,7 +12,7 @@ const BigText: React.FC = () => {
     <div className="text-center text-white text-5xl mt-40 font-caveat">
       {/* First Typed Message */}
       <ReactTyped
-        strings={['Welcome to <br/>NekosanQ Network!']}
+        strings={["I'm NekosanQ<br>"]}
         typeSpeed={50}
         showCursor={false}
         contentType="html"
@@ -21,13 +21,10 @@ const BigText: React.FC = () => {
           setTimeout(() => setShowCards(true), 2000);
         }}
       />
-
-      <div className="my-10"></div>
-
       {/* Second Typed Message */}
       {showSecondText && (
         <ReactTyped
-          strings={["I'm NekosanQ, a student with many interests."]}
+          strings={["I'm a student with many interests."]}
           typeSpeed={50}
           showCursor={false}
           contentType="html"

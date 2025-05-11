@@ -2,7 +2,6 @@ import React from 'react';
 import StarBackground from '../components/StarBackground';
 import BigText from '../components/BigText';
 
-
 const home = () => {
   return (
     <div className="min-h-screen bg-black/[95%] text-white relative overflow-hidden">
@@ -18,5 +17,5 @@ const home = () => {
       </div>
     </div>
   );
-}
+};
 export default home;
