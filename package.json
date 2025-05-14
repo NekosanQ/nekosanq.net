@@ -7,7 +7,9 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "check": "eslint . && prettier --check ."
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
