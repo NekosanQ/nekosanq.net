@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className="flex justify-between h-20 items-center">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <img src="/NekosanQ-Network.svg" alt="NekosanQ-Network-Logo" className="h-12 w-auto text-white filter invert" />
+            <img src="/icon.svg" alt="Nekonnection-Logo" className="h-12 w-auto text-white filter invert" />
           </div>
           <div className="hidden md:flex space-x-10 text-lg leading-none">
             {[
@@ -29,8 +29,8 @@ const Navbar = () => {
                 href="#"
                 className="relative flex items-center space-x-2 text-white font-normal after:content-[''] after:absolute after:left-0 after:bottom-[-3px] after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
               >
-              <FontAwesomeIcon icon={item.icon} className="text-base" />
-              <span>{item.name}</span>
+                <FontAwesomeIcon icon={item.icon} className="text-base" />
+                <span>{item.name}</span>
               </a>
             ))}
           </div>

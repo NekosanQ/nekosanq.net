@@ -1,21 +1,13 @@
-import React from 'react';
+import dynamic from 'next/dynamic'
 import StarBackground from '../components/StarBackground';
-import BigText from '../components/BigText';
 
-const home = () => {
-  return (
-    <div className="min-h-screen bg-black/[95%] text-white relative overflow-hidden">
-      {/* 背景レイヤー */}
-      <div className="absolute inset-0 z-0">
+const HomeClient = dynamic(() => import('../components/HomeClient'));
+const Home = () => {
+  return(
+    <div className="absolute inset-0 z-0">
+        <HomeClient />
         <StarBackground />
-      </div>
-
-      {/* 前面のUI */}
-      <div className="relative z-10">
-        <BigText />
-        <main className="pt-16 px-4">{/* メインコンテンツをここに追加 */}</main>
-      </div>
     </div>
-  );
-};
-export default home;
+  )
+}
+export default Home;

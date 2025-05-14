@@ -2,7 +2,11 @@ import './global.css';
 import Navbar from '../components/Navbar';
 import { ReactNode } from 'react';
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="ja">
       <body>
@@ -11,4 +15,5 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </body>
     </html>
   );
-}
+};
+export default RootLayout;
