@@ -1,31 +1,31 @@
-'use client'
+'use client';
 
-import dynamic from 'next/dynamic'
-import { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic';
+import { useEffect, useState } from 'react';
 
-const Canvas = dynamic(() => import('@react-three/fiber').then(mod => mod.Canvas))
-const OrbitControls = dynamic(() => import('@react-three/drei').then(mod => mod.OrbitControls))
-const Model = dynamic(() => import('./Model'))
+const Canvas = dynamic(() => import('@react-three/fiber').then((mod) => mod.Canvas));
+const OrbitControls = dynamic(() => import('@react-three/drei').then((mod) => mod.OrbitControls));
+const Model = dynamic(() => import('./Model'));
 
 const HomeClient = () => {
-  const [modelPosition, setModelPosition] = useState<[number, number, number]>([0, 0, 0])
+  const [modelPosition, setModelPosition] = useState<[number, number, number]>([0, 0, 0]);
 
   useEffect(() => {
     const updatePosition = () => {
-      const isMobile = window.innerWidth < 640
+      const isMobile = window.innerWidth < 640;
       if (isMobile) {
-        setModelPosition([0, 0, 0])
+        setModelPosition([0, 0, 0]);
       } else {
-        setModelPosition([3, 2, 0])
+        setModelPosition([3, 2, 0]);
       }
-    }
+    };
 
-    updatePosition()
-    window.addEventListener('resize', updatePosition)
-    return () => window.removeEventListener('resize', updatePosition)
-  }, [])
+    updatePosition();
+    window.addEventListener('resize', updatePosition);
+    return () => window.removeEventListener('resize', updatePosition);
+  }, []);
 
- const cameraPosition: [number, number, number] = [0, 2, 10];
+  const cameraPosition: [number, number, number] = [0, 2, 10];
   const modelScale = 2;
 
   return (
@@ -37,7 +37,7 @@ const HomeClient = () => {
         <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} />
       </Canvas>
     </div>
-  )
-}
+  );
+};
 
-export default HomeClient
+export default HomeClient;

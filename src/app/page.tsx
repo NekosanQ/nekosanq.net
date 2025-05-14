@@ -1,4 +1,4 @@
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 import StarBackground from '../components/StarBackground';
 import BigText from '../components/BigText';
 
@@ -9,7 +9,7 @@ const Home = () => {
     <div className="absolute inset-0 z-0">
       <HomeClient />
       <StarBackground />
-      <div className='fixed inset-0 z-10'>
+      <div className="fixed inset-0 z-10">
         <BigText />
       </div>
     </div>
