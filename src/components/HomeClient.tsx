@@ -14,9 +14,9 @@ const HomeClient = () => {
     const updatePosition = () => {
       const isMobile = window.innerWidth < 640;
       if (isMobile) {
-        setModelPosition([0, -2, 0]);
+        setModelPosition([0, 1, 0]);
       } else {
-        setModelPosition([3, 1, 1]);
+        setModelPosition([3, 3.1, 1]);
       }
     };
 
@@ -25,12 +25,12 @@ const HomeClient = () => {
     return () => window.removeEventListener('resize', updatePosition);
   }, []);
 
-  const cameraPosition: [number, number, number] = [0, 2, 10];
+  const cameraPosition: [number, number, number] = [0, 3, 10];
   const modelScale = 2;
 
   return (
-    <div className="fixed inset-0 z-10">
-      <Canvas camera={{ position: cameraPosition, fov: 45 }}>
+    <div className="absolute inset-0 z-10 pointer-events-none">
+      <Canvas style={{ pointerEvents: 'none' }} camera={{ position: cameraPosition, fov: 45 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 10, 5]} intensity={1.2} />
         <Model position={modelPosition} scale={modelScale} />
