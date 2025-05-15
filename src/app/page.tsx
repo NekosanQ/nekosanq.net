@@ -1,6 +1,7 @@
 import StarBackground from '../components/StarBackground';
 import BigText from '../components/BigText';
 import HomeClient from '../components/HomeClient';
+import ScrollDownIndicator from '../components/ScrollDownIndicator';
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <StarBackground />
       <div className="fixed inset-0 z-10">
         <BigText />
+        <ScrollDownIndicator />
       </div>
     </div>
   );

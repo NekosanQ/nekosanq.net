@@ -14,7 +14,7 @@ const HomeClient = () => {
     const updatePosition = () => {
       const isMobile = window.innerWidth < 640;
       if (isMobile) {
-        setModelPosition([0, -1, 0]);
+        setModelPosition([0, -2, 0]);
       } else {
         setModelPosition([3, 1, 1]);
       }
