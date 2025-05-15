@@ -4,6 +4,7 @@ import HomeClient from '../components/HomeClient';
 import ScrollDownIndicator from '../components/ScrollDownIndicator';
 import AboutMeCard from '../components/Profile';
 import StacksCard from '../components/SkillsCard';
+import GroupAboutCard from '../components/GroupAbout';
 
 const Home = () => {
   return (
@@ -27,6 +28,7 @@ const Home = () => {
         <section className="relative flex flex-col md:flex-row items-center justify-center md:py-32 md:-mt-96">
           <AboutMeCard />
           <StacksCard />
+          <GroupAboutCard />
         </section>
       </main>
     </div>
