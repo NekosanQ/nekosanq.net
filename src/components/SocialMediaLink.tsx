@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faGithub, faDiscord } from '@fortawesome/free-brands-svg-icons';
@@ -22,7 +20,7 @@ const SocialLink: React.FC = () => {
 
   return (
     <div
-      className={`flex space-x-6 justify-center md:justify-start mr-auto text-1xl transition-all duration-700 ease-out
+      className={`flex space-x-6 justify-center md:justify-start mr-auto text-2xl transition-all duration-700 ease-out
         ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
     >
       {links.map(({ href, icon, label }) => (
@@ -32,7 +30,7 @@ const SocialLink: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="
-            w-8 h-8
+            w-10 h-10
             rounded-md
             bg-gradient-to-r from-slate-700 to-slate-900
             text-gray-100

@@ -1,8 +1,6 @@
-import dynamic from 'next/dynamic';
 import StarBackground from '../components/StarBackground';
 import BigText from '../components/BigText';
-
-const HomeClient = dynamic(() => import('../components/HomeClient'));
+import HomeClient from '../components/HomeClient';
 
 const Home = () => {
   return (
