@@ -15,7 +15,7 @@ const SocialLink: React.FC = () => {
   const links = [
     { href: 'https://x.com/nekosanq_ts', icon: faXTwitter, label: 'Twitter' },
     { href: 'https://github.com/NekosanQ', icon: faGithub, label: 'GitHub' },
-    { href: 'https://discord.gg/8RAtEcwMBU', icon: faDiscord, label: 'Discord' },
+    { href: 'https://discord.gg/8RAtEcwMBU', icon: faDiscord, label: 'Discord' }
   ];
 
   return (

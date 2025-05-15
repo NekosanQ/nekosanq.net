@@ -2,7 +2,8 @@ import StarBackground from '../components/StarBackground';
 import BigText from '../components/BigText';
 import HomeClient from '../components/HomeClient';
 import ScrollDownIndicator from '../components/ScrollDownIndicator';
-import AboutMeCard from '../components/AboutMeCard';
+import AboutMeCard from '../components/Profile';
+import StacksCard from '../components/SkillsCard';
 
 const Home = () => {
   return (
@@ -23,8 +24,9 @@ const Home = () => {
           <ScrollDownIndicator />
         </section>
 
-        <section className="relative flex items-center justify-center min-h-screen -mt-96">
+        <section className="relative flex flex-col md:flex-row items-center justify-center md:py-32 md:-mt-96">
           <AboutMeCard />
+          <StacksCard />
         </section>
       </main>
     </div>
