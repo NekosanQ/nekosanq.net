@@ -11,7 +11,7 @@ interface ModelProps extends Object3DProps {
 
 const Model: React.FC<ModelProps> = ({ position, rotation, ...props }) => {
   const group = useRef<Group>(null);
-  const { scene, animations } = useGLTF('/maneki_neko.glb');
+  const { scene, animations } = useGLTF('/rocket_cat.glb');
   const { actions } = useAnimations(animations, group);
 
   useFrame(() => {
@@ -29,6 +29,6 @@ const Model: React.FC<ModelProps> = ({ position, rotation, ...props }) => {
   return <primitive ref={group} object={scene} position={position} rotation={rotation} scale={10} {...props} />;
 };
 
-useGLTF.preload('/maneki_neko.glb');
+useGLTF.preload('/rocket_cat.glb');
 
 export default Model;
