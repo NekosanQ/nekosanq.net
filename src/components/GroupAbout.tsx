@@ -28,11 +28,7 @@ const GroupCard: React.FC = () => {
         {/* 画像 */}
         <div className="flex justify-center mb-3">
           <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-white/20">
-            <img
-              src="/Nekonnection.png"
-              alt="My Group"
-              className="w-full h-full object-cover"
-            />
+            <img src="/Nekonnection.png" alt="My Group" className="w-full h-full object-cover" />
           </div>
         </div>
 

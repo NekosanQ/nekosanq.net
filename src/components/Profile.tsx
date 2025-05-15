@@ -21,8 +21,8 @@ const ProfileCard: React.FC = () => {
       <div className="w-full h-full bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-700 rounded-2xl text-white flex flex-col p-6">
         {/* 上部タイトル */}
         <div className="flex space-x-2 items-center mb-3 justify-center">
-        <FontAwesomeIcon icon={faUser} className="text-xl " />
-        <h1 className="text-xl font-semibold tracking-wide">Profile</h1>
+          <FontAwesomeIcon icon={faUser} className="text-xl " />
+          <h1 className="text-xl font-semibold tracking-wide">Profile</h1>
         </div>
 
         {/* 画像 */}

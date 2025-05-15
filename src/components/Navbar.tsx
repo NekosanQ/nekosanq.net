@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faCircleUser, faCircleNodes, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const sections = [
-  { name: 'Home',    icon: faHome,      id: 'home' },
-  { name: 'About',   icon: faCircleUser, id: 'about' },
+  { name: 'Home', icon: faHome, id: 'home' },
+  { name: 'About', icon: faCircleUser, id: 'about' },
   { name: 'Service', icon: faCircleNodes, id: 'service' },
-  { name: 'Contact', icon: faEnvelope,   id: 'contact' },
+  { name: 'Contact', icon: faEnvelope, id: 'contact' }
 ];
 
 const Navbar = () => {
@@ -101,35 +101,29 @@ const Navbar = () => {
           }`}
         style={{
           filter: isOpen ? 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.7))' : undefined,
-          borderRadius: '8px',
+          borderRadius: '8px'
         }}
       >
         {sections.map((item) => {
-          return (
-            item.name === 'Home' ? (
-              <button
-                key="Home-mobile"
-                onClick={scrollToTop}
-                className={`flex items-center space-x-3 transition ${
-                  activeSection === 'Home' ? 'underline' : ''
-                }`}
-              >
-                <FontAwesomeIcon icon={faHome} className="text-lg" />
-                <span>Home</span>
-              </button>
-            ) : (
-              <a
-                key={item.name}
-                href={`#${item.id}`}
-                onClick={() => setIsOpen(false)}
-                className={`flex items-center space-x-3 transition ${
-                  activeSection === item.name ? 'underline' : ''
-                }`}
-              >
-                <FontAwesomeIcon icon={item.icon} className="text-lg" />
-                <span>{item.name}</span>
-              </a>
-            )
+          return item.name === 'Home' ? (
+            <button
+              key="Home-mobile"
+              onClick={scrollToTop}
+              className={`flex items-center space-x-3 transition ${activeSection === 'Home' ? 'underline' : ''}`}
+            >
+              <FontAwesomeIcon icon={faHome} className="text-lg" />
+              <span>Home</span>
+            </button>
+          ) : (
+            <a
+              key={item.name}
+              href={`#${item.id}`}
+              onClick={() => setIsOpen(false)}
+              className={`flex items-center space-x-3 transition ${activeSection === item.name ? 'underline' : ''}`}
+            >
+              <FontAwesomeIcon icon={item.icon} className="text-lg" />
+              <span>{item.name}</span>
+            </a>
           );
         })}
       </div>
