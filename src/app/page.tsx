@@ -8,15 +8,14 @@ import GroupAboutCard from '../components/GroupAbout';
 
 const Home = () => {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-black text-white">
-
+    <div id="top" className="relative min-h-screen overflow-x-hidden bg-black text-white">
       {/* 背景 */}
       <div className="fixed inset-0 z-0">
         <StarBackground />
       </div>
       {/* メインコンテンツ */}
       <main className="relative z-10">
-        <section className="relative h-screen">
+        <section id="home" className="relative min-h-screen">
           <HomeClient />
           <BigText />
         </section>
@@ -25,7 +24,7 @@ const Home = () => {
           <ScrollDownIndicator />
         </section>
 
-        <section className="relative flex flex-col md:flex-row items-center justify-center md:py-32 md:-mt-96">
+        <section id="about" className="relative flex flex-col md:flex-row items-center justify-center md:py-32 md:-mt-96">
           <AboutMeCard />
           <StacksCard />
           <GroupAboutCard />
