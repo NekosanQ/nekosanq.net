@@ -36,7 +36,7 @@ const ProfileCard: React.FC = () => {
         <div className="space-y-3 flex-grow text-center">
           <h2 className="text-3xl font-bold tracking-wide">NekosanQ</h2>
           <p className="text-lg font-semibold text-gray-300">Fullstack Developer</p>
-          <p className="text-gray-300 leading-relaxed text-sm">
+          <p className="text-xs 2xl:text-sm text-gray-300 leading-relaxed">
             多趣味な学生です。
             <br />
             様々なことに興味を持っています。

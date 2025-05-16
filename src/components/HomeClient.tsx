@@ -13,10 +13,13 @@ const HomeClient = () => {
   useEffect(() => {
     const updatePosition = () => {
       const isMobile = window.innerWidth < 640;
+      const isFullScreen = window.innerWidth < 1536;
       if (isMobile) {
         setModelPosition([0, 1, 0]);
+      } else if (isFullScreen) {
+        setModelPosition([3, 3, 1]);
       } else {
-        setModelPosition([3, 3.1, 1]);
+        setModelPosition([3, 2, 1]);
       }
     };
 

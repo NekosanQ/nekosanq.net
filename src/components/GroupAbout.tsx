@@ -36,7 +36,7 @@ const GroupCard: React.FC = () => {
         <div className="space-y-3 flex-grow text-center">
           <h2 className="text-3xl font-bold tracking-wide">Nekonnection</h2>
           <p className="text-lg font-semibold text-gray-300">皆と繋がる、サービスを。</p>
-          <p className="text-gray-300 leading-relaxed text-sm">
+          <p className="text-xs 2xl:text-sm text-gray-300 leading-relaxed">
             様々なサービスを提供するグループ。
             <br />
             現在、ほぼ私一人で運営しています。
