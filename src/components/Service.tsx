@@ -17,7 +17,7 @@ const services = [
 
 export const Service: React.FC = () => {
   return (
-    <section className="max-w-5xl w-full mx-auto px-2 sm:px-6 py-12 from-gray-900 via-gray-800 to-gray-900 rounded-3xl shadow-lg text-gray-100">
+    <section className="max-w-5xl w-full mx-auto px-2 sm:px-6 py-12 from-gray-900 via-gray-800 to-gray-900 rounded text-gray-100">
       <div className="flex flex-col space-y-28">
         {services.map(({ title, description, image }, idx) => {
           const isEven = idx % 2 === 0;
