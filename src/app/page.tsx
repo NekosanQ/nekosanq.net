@@ -7,6 +7,7 @@ import AboutMeCard from '../components/Profile';
 import StacksCard from '../components/SkillsCard';
 import GroupAboutCard from '../components/GroupAbout';
 import Service from '../components/Service';
+import Footer from '../components/Footer';
 
 const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
   <div className="flex items-center justify-center gap-4 mb-10">
@@ -49,6 +50,8 @@ const Home = () => {
           <SectionHeader title="Nekonnection Service" />
           <Service />
         </section>
+        {/* フッター */}
+        <Footer />
       </main>
     </div>
   );
