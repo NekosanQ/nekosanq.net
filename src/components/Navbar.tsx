@@ -66,6 +66,19 @@ const Navbar = () => {
                     <span>Home</span>
                   </button>
                 );
+              } else if (item.name === 'Contact') {
+                return (
+                  <a
+                    key="Contact"
+                    href="https://twitter.com/nekosanq_ts"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative flex items-center space-x-2 text-white font-normal after:content-[''] after:absolute after:left-0 after:bottom-[-3px] after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full after:w-0"
+                  >
+                    <FontAwesomeIcon icon={item.icon} className="text-base" />
+                    <span>Contact</span>
+                  </a>
+                );
               }
               return (
                 <a
@@ -80,6 +93,7 @@ const Navbar = () => {
                 </a>
               );
             })}
+
           </div>
 
           {/* Mobile Button */}
@@ -105,16 +119,33 @@ const Navbar = () => {
         }}
       >
         {sections.map((item) => {
-          return item.name === 'Home' ? (
-            <button
-              key="Home-mobile"
-              onClick={scrollToTop}
-              className={`flex items-center space-x-3 transition ${activeSection === 'Home' ? 'underline' : ''}`}
-            >
-              <FontAwesomeIcon icon={faHome} className="text-lg" />
-              <span>Home</span>
-            </button>
-          ) : (
+          if (item.name === 'Home') {
+            return (
+              <button
+                key="Home-mobile"
+                onClick={scrollToTop}
+                className={`flex items-center space-x-3 transition ${activeSection === 'Home' ? 'underline' : ''}`}
+              >
+                <FontAwesomeIcon icon={faHome} className="text-lg" />
+                <span>Home</span>
+              </button>
+            );
+          } else if (item.name === 'Contact') {
+            return (
+              <a
+                key="Contact-mobile"
+                href="https://twitter.com/nekosanq_ts"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative flex items-center space-x-3 transition after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full after:w-0"
+              >
+                <FontAwesomeIcon icon={item.icon} className="text-lg" />
+                <span>Contact</span>
+              </a>
+
+            );
+          }
+          return (
             <a
               key={item.name}
               href={`#${item.id}`}
@@ -126,6 +157,7 @@ const Navbar = () => {
             </a>
           );
         })}
+
       </div>
     </nav>
   );
