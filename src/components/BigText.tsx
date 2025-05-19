@@ -22,7 +22,7 @@ const BigText: React.FC = () => {
           onComplete={() => setIsTypedDone(true)}
         />
       </p>
-      
+
       {isTypedDone && (
         <div className="mt-6 transition-opacity duration-1000 ease-out opacity-100">
           <SocialLink />
