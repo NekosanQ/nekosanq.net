@@ -12,10 +12,8 @@ const HomeClient = () => {
 
   useEffect(() => {
     const updatePosition = () => {
-      if (window.innerWidth < 640) {
+      if (window.innerWidth < 834) {
         setModelPosition([0, 1, 0]);
-      } else if (window.innerWidth > 1360) {
-        setModelPosition([3, 3, 1]);
       } else {
         setModelPosition([3, 3, 1]);
       }

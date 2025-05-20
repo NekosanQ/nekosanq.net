@@ -8,7 +8,7 @@ const BigText: React.FC = () => {
   const [isTypedDone, setIsTypedDone] = useState(false);
 
   return (
-    <div className="mt-40 md:mt-80 flex flex-col items-center md:items-start text-center font-bold max-w-4xl mx-auto px-4">
+    <div className="mt-40 md:mt-80 flex flex-col items-center lg:items-start text-center font-bold max-w-4xl mx-auto px-4">
       <h1 className="text-5xl md:text-7xl bg-gradient-to-t from-slate-200 via-lime-100 to-slate-200 bg-clip-text text-transparent drop-shadow-[0_0_5px_rgba(255,255,255,0.6)]">
         <ReactTyped strings={["I'm NekosanQ"]} typeSpeed={50} showCursor={false} contentType="html" />
       </h1>

@@ -38,7 +38,7 @@ const Home = () => {
         <section id="about" className="relative flex flex-col items-center justify-center md:py-32 md:-mt-96 space-y-20 max-w-7xl mx-auto px-4">
           <SectionHeader title="About me" />
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-12 w-full">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-12 w-full">
             <AboutMeCard />
             <StacksCard />
             <GroupAboutCard />

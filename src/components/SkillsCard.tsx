@@ -36,7 +36,7 @@ const SkillsCard: React.FC = () => {
       initial={{ scale: 0.8, opacity: 0 }}
       animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="relative mt-10 md:mt-0 md:ml-5 w-72 md:w-96 h-96 p-1 rounded-2xl bg-gradient-to-tr from-slate-500 via-lime-100 to-slate-500 shadow-2xl overflow-hidden"
+      className="relative mt-10 md:mt-0 md:ml-5 w-72 h-96 p-1 rounded-2xl bg-gradient-to-tr from-slate-500 via-lime-100 to-slate-500 shadow-2xl overflow-hidden"
       style={{ perspective: '1000px' }}
     >
       <div
