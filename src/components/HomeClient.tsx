@@ -17,7 +17,7 @@ const HomeClient = () => {
       } else if (window.innerWidth > 1360) {
         setModelPosition([3, 3, 1]);
       } else {
-        setModelPosition([3, 2, 1]);
+        setModelPosition([3, 3, 1]);
       }
     };
 
