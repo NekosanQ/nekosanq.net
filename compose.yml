@@ -1,0 +1,14 @@
+services:
+  web:
+    container_name: nekosanq.net
+    build:
+      context: .
+      target: ${BUILD_TARGET:-development}
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+    command: npm run dev
