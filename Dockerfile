@@ -28,15 +28,13 @@ FROM node:22.15.1-alpine3.17 AS production
 ENV NODE_ENV=production
 WORKDIR /app
 
+COPY package*.json ./
+RUN npm install --omit=dev
+
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/next.config.js ./next.config.js
 
 EXPOSE 3000
 CMD ["npm", "run", "start"]
-# Development build
-# docker-compose up --build
-# Production build
-# NODE_ENV=production BUILD_TARGET=production docker-compose up --build
 
