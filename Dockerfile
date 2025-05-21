@@ -1,4 +1,4 @@
-FROM node:22.15.1-alpine3.17 AS base
+FROM node:22.15-slim AS base
 # Stage 1: Base image
 
 WORKDIR /app
