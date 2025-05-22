@@ -23,6 +23,7 @@ const Home = () => {
       <div className="fixed inset-0 z-0">
         <StarBackground />
       </div>
+
       {/* メインコンテンツ */}
       <main className="relative z-10">
         <section id="home" className="relative min-h-screen">
@@ -37,7 +38,6 @@ const Home = () => {
         {/* About Me セクション */}
         <section id="about" className="relative flex flex-col items-center justify-center md:py-32 md:-mt-96 space-y-20 max-w-7xl mx-auto px-4">
           <SectionHeader title="About me" />
-
           <div className="flex flex-col lg:flex-row items-center justify-center gap-12 w-full">
             <AboutMeCard />
             <StacksCard />
@@ -50,6 +50,7 @@ const Home = () => {
           <SectionHeader title="Nekonnection Service" />
           <Service />
         </section>
+
         {/* フッター */}
         <Footer />
       </main>
