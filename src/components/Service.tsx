@@ -5,13 +5,13 @@ import { motion } from 'framer-motion';
 const services = [
   {
     title: '猫の隠れ家 - CatHideaway',
-    description: '猫好きの人達で交流し、国籍・年齢問わず楽しく過ごすDiscordコミュニティです。\n主に雑談・作業・配信・ゲームなどをしてます！',
-    image: 'cathideaway.png'
+    description: '猫好きの人達で交流し、国籍・年齢問わず楽しく過ごすDiscordコミュニティです。\n主に雑談・作業・配信・ゲームなどをしてます。',
+    image: '/CatHideaway.png'
   },
   {
     title: '猫咲 紬',
     description: '「可愛くて便利」\n2022年2月22日に作成し、サービスを開始したDiscordBOTです。',
-    image: 'tsumugi.png'
+    image: '/tsumugi.png'
   }
 ];
 
