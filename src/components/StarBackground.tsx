@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const generateStars = (count: number, _size: number, areaWidth: number, areaHeight: number) => {
   const stars: string[] = [];
@@ -7,7 +7,7 @@ const generateStars = (count: number, _size: number, areaWidth: number, areaHeig
     const y = Math.floor(Math.random() * areaHeight);
     stars.push(`${x}px ${y}px white`);
   }
-  return stars.join(', ');
+  return stars.join(", ");
 };
 
 const StarLayer = ({ size, count, duration }: { size: number; count: number; duration: number }) => {
@@ -25,10 +25,10 @@ const StarLayer = ({ size, count, duration }: { size: number; count: number; dur
       <div
         className="absolute"
         style={{
-          top: '2000px',
+          top: "2000px",
           width: `${size}px`,
           height: `${size}px`,
-          background: 'transparent',
+          background: "transparent",
           boxShadow: afterBoxShadow
         }}
       />

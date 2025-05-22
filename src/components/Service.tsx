@@ -1,17 +1,17 @@
-'use client';
-import React from 'react';
-import { motion } from 'framer-motion';
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
 
 const services = [
   {
-    title: '猫の隠れ家 - CatHideaway',
-    description: '猫好きの人達で交流し、国籍・年齢問わず楽しく過ごすDiscordコミュニティです。\n主に雑談・作業・配信・ゲームなどをしてます。',
-    image: '/CatHideaway.png'
+    title: "猫の隠れ家 - CatHideaway",
+    description: "猫好きの人達で交流し、国籍・年齢問わず楽しく過ごすDiscordコミュニティです。\n主に雑談・作業・配信・ゲームなどをしてます。",
+    image: "/CatHideaway.png"
   },
   {
-    title: '猫咲 紬',
-    description: '「可愛くて便利」\n2022年2月22日に作成し、サービスを開始したDiscordBOTです。',
-    image: '/tsumugi.png'
+    title: "猫咲 紬",
+    description: "「可愛くて便利」\n2022年2月22日に作成し、サービスを開始したDiscordBOTです。",
+    image: "/tsumugi.png"
   }
 ];
 
@@ -24,10 +24,10 @@ export const Service: React.FC = () => {
           return (
             <motion.div
               key={title}
-              className={`flex flex-col md:flex-row items-center md:items-start ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} gap-16`}
+              className={`flex flex-col md:flex-row items-center md:items-start ${isEven ? "md:flex-row" : "md:flex-row-reverse"} gap-16`}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
             >
               {/* 画像 */}
@@ -39,7 +39,7 @@ export const Service: React.FC = () => {
               <div className="md:mb-20 md:w-2/3 max-w-xl text-center md:text-start">
                 <h3 className="text-4xl font-semibold mb-5 tracking-wide text-slate-200 drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">{title}</h3>
                 <p className="text-gray-300 leading-relaxed text-lg">
-                  {description.split('\n').map((line, i) => (
+                  {description.split("\n").map((line, i) => (
                     <React.Fragment key={i}>
                       {line}
                       <br />

@@ -1,13 +1,13 @@
-import React from 'react';
-import StarBackground from '../components/StarBackground';
-import BigText from '../components/BigText';
-import HomeClient from '../components/HomeClient';
-import ScrollDownIndicator from '../components/ScrollDownIndicator';
-import AboutMeCard from '../components/Profile';
-import StacksCard from '../components/SkillsCard';
-import GroupAboutCard from '../components/GroupAbout';
-import Service from '../components/Service';
-import Footer from '../components/Footer';
+import React from "react";
+import StarBackground from "../components/StarBackground";
+import BigText from "../components/BigText";
+import HomeClient from "../components/HomeClient";
+import ScrollDownIndicator from "../components/ScrollDownIndicator";
+import AboutMeCard from "../components/Profile";
+import StacksCard from "../components/SkillsCard";
+import GroupAboutCard from "../components/GroupAbout";
+import Service from "../components/Service";
+import Footer from "../components/Footer";
 
 const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
   <div className="flex items-center justify-center gap-4 mb-10">

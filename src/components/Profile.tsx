@@ -1,22 +1,22 @@
-'use client';
+"use client";
 
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt, faUser } from '@fortawesome/free-solid-svg-icons';
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkerAlt, faUser } from "@fortawesome/free-solid-svg-icons";
 
 const ProfileCard: React.FC = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
     <motion.div
       ref={ref}
       initial={{ scale: 0.8, opacity: 0 }}
       animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       className="relative w-72 h-96 p-1 rounded-2xl bg-gradient-to-tr from-slate-500 via-lime-100 to-slate-500 shadow-2xl overflow-hidden"
-      style={{ perspective: '1000px' }}
+      style={{ perspective: "1000px" }}
     >
       <div className="w-full h-full bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-700 rounded-2xl text-white flex flex-col p-6">
         {/* 上部タイトル */}
