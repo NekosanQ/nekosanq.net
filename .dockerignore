@@ -1,8 +1,6 @@
 node_modules
 .next
-Dockerfile*
-docker-compose.yml
-.env*
-*.lo
-.git
+npm-debug.log
 README.md
+.git
+.gitignore
