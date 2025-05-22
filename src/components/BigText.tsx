@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { ReactTyped } from 'react-typed';
-import SocialLink from './SocialMediaLink';
+import React, { useState } from "react";
+import { ReactTyped } from "react-typed";
+import SocialLink from "./SocialMediaLink";
 
 const BigText: React.FC = () => {
   const [isTypedDone, setIsTypedDone] = useState(false);
@@ -15,7 +15,7 @@ const BigText: React.FC = () => {
 
       <p className="text-base md:text-2xl text-gray-400 mt-4">
         <ReactTyped
-          strings={['A developer and a student with many hobbies...']}
+          strings={["A developer and a student with many hobbies..."]}
           typeSpeed={30}
           startDelay={1000}
           showCursor={false}

@@ -1,11 +1,11 @@
-FROM node:22.15-slim AS base
-# Stage 1: Base image
+# Base image
+FROM node:22.15-alpine3.21 AS base
 
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-# Stage 2: Development environment
+# 開発環境
 FROM base AS development
 
 ENV NODE_ENV=development
@@ -14,27 +14,28 @@ COPY . .
 
 CMD ["npm", "run", "dev"]
 
-# Stage 3: Production build
+# Builder stage (本番ビルド用)
 FROM base AS builder
-
-ENV NODE_ENV=production
-WORKDIR /app
 COPY . .
+# Next.jsアプリケーションをビルド
 RUN npm run build
 
-# Stage 4: Production runtime
-FROM node:22.15.1-alpine3.17 AS production
-
+# 本番環境
+FROM node:22.15-alpine3.21 AS production
 ENV NODE_ENV=production
 WORKDIR /app
 
-COPY package*.json ./
+# package.json と package-lock.json (あれば) をbuilderステージからコピー
+COPY --from=builder /app/package*.json ./
+# 本番用の依存関係のみをインストール
 RUN npm install --omit=dev
 
+# Next.jsのビルド済みファイルをbuilderステージからコピー
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/next.config.js ./next.config.js
 
 EXPOSE 3000
-CMD ["npm", "run", "start"]
 
+# アプリを起動
+CMD ["npm", "run", "start"]

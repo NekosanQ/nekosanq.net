@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const ScrollDownIndicator = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -13,8 +13,8 @@ const ScrollDownIndicator = () => {
       setIsVisible(window.scrollY < 100);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -31,7 +31,7 @@ const ScrollDownIndicator = () => {
             transition={{
               duration: 1.5,
               repeat: Infinity,
-              ease: 'easeInOut'
+              ease: "easeInOut"
             }}
           >
             <FontAwesomeIcon icon={faChevronDown} className="text-gray-500 text-3xl" />
