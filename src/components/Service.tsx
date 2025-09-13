@@ -6,7 +6,7 @@ const services = [
   {
     title: "猫の隠れ家 - CatHideaway",
     description: "猫好きの人達で交流し、国籍・年齢問わず楽しく過ごすDiscordコミュニティです。\n主に雑談・作業・配信・ゲームなどをしてます。",
-    image: "/CatHideaway.png"
+    image: "/cathideaway.png"
   },
   {
     title: "猫咲 紬",
