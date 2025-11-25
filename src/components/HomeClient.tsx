@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 
 const Canvas = dynamic(() => import("@react-three/fiber").then((mod) => mod.Canvas));
 const OrbitControls = dynamic(() => import("@react-three/drei").then((mod) => mod.OrbitControls));
@@ -32,7 +32,9 @@ const HomeClient = () => {
       <Canvas style={{ pointerEvents: "none" }} camera={{ position: cameraPosition, fov: 45 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 10, 5]} intensity={1.2} />
-        <Model position={modelPosition} scale={modelScale} />
+        <Suspense fallback={null}>
+          <Model position={modelPosition} scale={modelScale} />
+        </Suspense>      
         <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} />
       </Canvas>
     </div>
