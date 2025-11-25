@@ -38,7 +38,7 @@ const StarLayer = ({ size, count, duration }: { size: number; count: number; dur
 
 const StarBackground: React.FC = () => {
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-gradient-to-b from-[#0d141c] to-[#050607]">
+    <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 bg-gradient-to-b from-[#0d141c] to-[#050607]">
       <StarLayer size={1} count={100} duration={1000} />
       <StarLayer size={2} count={100} duration={1000} />
       <StarLayer size={3} count={100} duration={200} />
