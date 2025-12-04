@@ -1,47 +1,68 @@
-import React from "react";
+import React, { useMemo } from "react";
 
-const generateStars = (count: number, _size: number, areaWidth: number, areaHeight: number) => {
-  const stars: string[] = [];
-  for (let i = 0; i < count; i++) {
-    const x = Math.floor(Math.random() * areaWidth);
-    const y = Math.floor(Math.random() * areaHeight);
-    stars.push(`${x}px ${y}px white`);
-  }
-  return stars.join(", ");
+type Star = {
+  id: number;
+  top: string;
+  size: number;
+  duration: number;
+  delay: number;
 };
 
-const StarLayer = ({ size, count, duration }: { size: number; count: number; duration: number }) => {
-  const boxShadow = generateStars(count, size, 2000, 2000);
-  const afterBoxShadow = generateStars(count, size, 2000, 2000);
+const generateStars = (count: number, size: number, minDuration: number, maxDuration: number): Star[] => {
+  const stars: Star[] = [];
+  for (let i = 0; i < count; i++) {
+    const duration = Math.random() * (maxDuration - minDuration) + minDuration;
+    const delay = Math.random() * duration;
+    stars.push({
+      id: i,
+      top: `${Math.random() * 100}%`,
+      size,
+      duration,
+      delay: -delay,
+    });
+  }
+  return stars;
+};
+
+const StarGroup = ({ count, size, minDuration, maxDuration }: { count: number; size: number; minDuration: number; maxDuration: number }) => {
+  const stars = useMemo(() => generateStars(count, size, minDuration, maxDuration), [count, size, minDuration, maxDuration]);
 
   return (
-    <div
-      className="absolute top-0 left-0 w-[1px] h-[1px] bg-transparent animate-[starMove_linear_infinite]"
-      style={{
-        boxShadow,
-        animationDuration: `${duration}s`
-      }}
-    >
-      <div
-        className="absolute"
-        style={{
-          top: "2000px",
-          width: `${size}px`,
-          height: `${size}px`,
-          background: "transparent",
-          boxShadow: afterBoxShadow
-        }}
-      />
-    </div>
+    <>
+      {stars.map((star) => (
+        <div
+          key={star.id}
+          className="absolute bg-white rounded-full"
+          style={{
+            top: star.top,
+            left: "100%",
+            width: `${star.size}px`,
+            height: `${star.size}px`,
+            opacity: Math.random() * 0.5 + 0.3,
+            boxShadow: `0 0 ${star.size + 2}px rgba(255, 255, 255, 0.4)`,
+            animation: `starFlow ${star.duration}s linear infinite`,
+            animationDelay: `${star.delay}s`,
+          }}
+        />
+      ))}
+    </>
   );
 };
 
 const StarBackground: React.FC = () => {
   return (
     <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 bg-gradient-to-b from-[#0d141c] to-[#050607]">
-      <StarLayer size={1} count={100} duration={1000} />
-      <StarLayer size={2} count={100} duration={1000} />
-      <StarLayer size={3} count={100} duration={200} />
+      <style>
+        {`
+          @keyframes starFlow {
+            from { transform: translateX(0); }
+            to { transform: translateX(-110vw); }
+          }
+        `}
+      </style>
+      <StarGroup count={100} size={1} minDuration={20} maxDuration={40} />
+      <StarGroup count={50} size={2} minDuration={10} maxDuration={25} />
+      <StarGroup count={20} size={3} minDuration={5} maxDuration={15} />
     </div>
   );
 };
