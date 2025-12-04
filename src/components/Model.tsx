@@ -7,9 +7,10 @@ type Object3DProps = JSX.IntrinsicElements["group"];
 interface ModelProps extends Object3DProps {
   position?: [number, number, number];
   rotation?: [number, number, number];
+  scale?: number | [number, number, number];
 }
 
-const Model: React.FC<ModelProps> = ({ position, rotation, ...props }) => {
+const Model: React.FC<ModelProps> = ({ position, rotation, scale = 1, ...props }) => {
   const group = useRef<Group>(null);
   const { scene, animations } = useGLTF("/rocket_cat.glb");
   const { actions } = useAnimations(animations, group);
@@ -26,7 +27,16 @@ const Model: React.FC<ModelProps> = ({ position, rotation, ...props }) => {
     }
   }, [actions]);
 
-  return <primitive ref={group} object={scene} position={position} rotation={rotation} scale={10} {...props} />;
+  return (
+    <primitive 
+      ref={group} 
+      object={scene} 
+      position={position} 
+      rotation={rotation} 
+      scale={scale}
+      {...props} 
+    />
+  );
 };
 
 useGLTF.preload("/rocket_cat.glb");
