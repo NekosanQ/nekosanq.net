@@ -5,8 +5,8 @@ import type { Viewport } from "next";
 
 export const metadata = {
   title: "NekosanQ - Portfolio",
-  description: "NekosnQのポートフォリオサイトです。",
-  keywords: ["NeksaanQ", "Nekonnection", "Portfolio"],
+  description: "NekosanQのポートフォリオサイトです。",
+  keywords: ["NekosanQ", "Nekonnection", "Portfolio"],
   openGraph: {
     title: "NekosanQ - Portfolio",
     description: "NekosnQのポートフォリオサイトです。",
