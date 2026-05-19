@@ -41,7 +41,7 @@ const ProfileCard: React.FC = () => {
             <br />
             様々なことに興味を持っています。
             <br />
-            彼女ができなくて悲しいです...
+            常に眠いです。
           </p>
           <div className="flex items-center justify-center space-x-2 text-gray-300 mt-2">
             <FontAwesomeIcon icon={faMapMarkerAlt} className="text-lg" />
