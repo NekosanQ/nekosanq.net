@@ -1,23 +1,11 @@
-"use client";
-
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import React from "react";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt, faUser } from "@fortawesome/free-solid-svg-icons";
 
 const ProfileCard: React.FC = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
   return (
-    <motion.div
-      ref={ref}
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="relative w-72 h-96 p-px rounded-2xl bg-gradient-to-br from-slate-400 via-emerald-100 to-slate-400 shadow-2xl overflow-hidden"
-      style={{ perspective: "1000px" }}
-    >
+    <div className="relative w-72 h-96 p-px rounded-2xl bg-gradient-to-br from-slate-400 via-emerald-100 to-slate-400 shadow-2xl overflow-hidden">
       <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 rounded-2xl text-slate-100 flex flex-col p-6">
         {/* 上部タイトル */}
         <div className="flex space-x-2 items-center mb-3 justify-center">
@@ -28,7 +16,7 @@ const ProfileCard: React.FC = () => {
         {/* 画像 */}
         <div className="flex justify-center mb-3">
           <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-white/20">
-            <img src="/NekosanQ.png" alt="Profile" className="w-full h-full object-cover" />
+            <Image src="/NekosanQ.png" alt="NekosanQ" width={64} height={64} sizes="64px" className="w-full h-full object-cover" />
           </div>
         </div>
 
@@ -41,7 +29,7 @@ const ProfileCard: React.FC = () => {
             <br />
             様々なことに興味を持っています。
             <br />
-            常に眠いです。
+            常に金欠です。
           </p>
           <div className="flex items-center justify-center space-x-2 text-slate-300 mt-2">
             <FontAwesomeIcon icon={faMapMarkerAlt} className="text-lg" />
@@ -49,7 +37,7 @@ const ProfileCard: React.FC = () => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

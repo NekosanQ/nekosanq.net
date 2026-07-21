@@ -1,47 +1,37 @@
-"use client";
-
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTools } from "@fortawesome/free-solid-svg-icons";
 
-const icons = [
-  { name: "React", url: "https://skillicons.dev/icons?i=react" },
-  { name: "Next.js", url: "https://skillicons.dev/icons?i=nextjs" },
-  { name: "TypeScript", url: "https://skillicons.dev/icons?i=typescript" },
-  { name: "Node.js", url: "https://skillicons.dev/icons?i=nodejs" },
-  { name: "Express", url: "https://skillicons.dev/icons?i=express" },
-  { name: "Tailwind CSS", url: "https://skillicons.dev/icons?i=tailwind" },
-  { name: "Git", url: "https://skillicons.dev/icons?i=git" },
-  { name: "Docker", url: "https://skillicons.dev/icons?i=docker" },
-  { name: "JavaScript", url: "https://skillicons.dev/icons?i=javascript" },
-  { name: "Discord.js", url: "https://skillicons.dev/icons?i=discordjs" },
-  { name: "Python", url: "https://skillicons.dev/icons?i=python" },
-  { name: "C", url: "https://skillicons.dev/icons?i=c" },
-  { name: "Java", url: "https://skillicons.dev/icons?i=java" },
-  { name: "Kotlin", url: "https://skillicons.dev/icons?i=kotlin" },
-  { name: "MySQL", url: "https://skillicons.dev/icons?i=mysql" },
-  { name: "Linux", url: "https://skillicons.dev/icons?i=linux" },
-  { name: "Prisma", url: "https://skillicons.dev/icons?i=prisma" },
-  { name: "Bootstrap", url: "https://skillicons.dev/icons?i=bootstrap" },
-  { name: "Cloudflare", url: "https://skillicons.dev/icons?i=cloudflare" },
-  { name: "AWS", url: "https://skillicons.dev/icons?i=aws" },
-  { name: "Proxmox", url: "https://cdn.simpleicons.org/proxmox/E57000" }
+const skills = [
+  "React",
+  "Next.js",
+  "TypeScript",
+  "Node.js",
+  "Express",
+  "Tailwind CSS",
+  "Git",
+  "Docker",
+  "JavaScript",
+  "Discord.js",
+  "Python",
+  "C",
+  "Java",
+  "Kotlin",
+  "MySQL",
+  "Linux",
+  "Prisma",
+  "Bootstrap",
+  "Cloudflare",
+  "AWS",
+  "Proxmox"
 ];
 
-const SkillsCard: React.FC = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+const skillIconsUrl =
+  "https://skillicons.dev/icons?i=react,nextjs,typescript,nodejs,express,tailwind,git,docker,javascript,discordjs,python,c,java,kotlin,mysql,linux,prisma,bootstrap,cloudflare,aws&perline=5";
 
+const SkillsCard: React.FC = () => {
   return (
-    <motion.div
-      ref={ref}
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="relative mt-10 md:mt-0 md:ml-5 w-72 h-96 p-px rounded-2xl bg-gradient-to-br from-slate-400 via-emerald-100 to-slate-400 shadow-2xl overflow-hidden"
-      style={{ perspective: "1000px" }}
-    >
+    <div className="relative mt-10 md:mt-0 md:ml-5 w-72 h-96 p-px rounded-2xl bg-gradient-to-br from-slate-400 via-emerald-100 to-slate-400 shadow-2xl overflow-hidden">
       <div
         className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700
         rounded-2xl text-slate-100 flex flex-col p-6"
@@ -53,13 +43,29 @@ const SkillsCard: React.FC = () => {
         </div>
 
         {/* 技術アイコン横並び */}
-        <div className="flex flex-wrap justify-center items-center gap-4 flex-grow mt-4 overflow-auto">
-          {icons.map(({ name, url }) => (
-            <img key={name} src={url} alt={name} title={name} className="w-12 h-12 object-contain" draggable={false} />
-          ))}
+        <div className="flex flex-col justify-center items-center gap-3 flex-grow mt-4">
+          <img
+            src={skillIconsUrl}
+            alt={skills.slice(0, -1).join("、")}
+            title={skills.slice(0, -1).join(" / ")}
+            width={260}
+            height={208}
+            loading="lazy"
+            draggable={false}
+          />
+          <img
+            src="https://cdn.simpleicons.org/proxmox/E57000"
+            alt="Proxmox"
+            title="Proxmox"
+            className="h-10 w-10 object-contain"
+            width={40}
+            height={40}
+            loading="lazy"
+            draggable={false}
+          />
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 type Star = {
   id: number;
@@ -22,7 +22,7 @@ const generateStars = (count: number, size: number, minDuration: number, maxDura
       size,
       duration,
       delay: -delay,
-      opacity: Math.random() * 0.5 + 0.3,
+      opacity: Math.random() * 0.5 + 0.3
     });
   }
   return stars;
@@ -51,7 +51,7 @@ const StarGroup = ({ count, size, minDuration, maxDuration }: { count: number; s
             opacity: star.opacity,
             boxShadow: `0 0 ${star.size + 2}px rgba(255, 255, 255, 0.4)`,
             animation: `starFlow ${star.duration}s linear infinite`,
-            animationDelay: `${star.delay}s`,
+            animationDelay: `${star.delay}s`
           }}
         />
       ))}

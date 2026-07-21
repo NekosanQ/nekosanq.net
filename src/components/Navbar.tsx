@@ -87,10 +87,10 @@ const Navbar = () => {
   const closeMobile = () => setIsOpen(false);
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full border-b border-white/5 bg-black/20 backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 z-50 w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
         {/* Logo */}
-        <img src="/icon.svg" alt="Logo" className="h-9 w-auto filter invert" />
+        <img src="/icon.svg" alt="Logo" className="h-9 w-auto" />
 
         {/* Desktop */}
         <div className="hidden md:flex space-x-8 text-base leading-none">

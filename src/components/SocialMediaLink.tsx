@@ -1,17 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter, faGithub, faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 const SocialLink: React.FC = () => {
-  const [animate, setAnimate] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimate(true);
-    }, 50);
-    return () => clearTimeout(timer);
-  }, []);
-
   const links = [
     { href: "https://x.com/nekosanq_ts", icon: faXTwitter, label: "Twitter" },
     { href: "https://github.com/NekosanQ", icon: faGithub, label: "GitHub" },
@@ -19,10 +10,7 @@ const SocialLink: React.FC = () => {
   ];
 
   return (
-    <div
-      className={`flex space-x-6 justify-center md:justify-start mr-auto text-2xl transition-all duration-700 ease-out
-        ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-    >
+    <div className="flex space-x-6 justify-center md:justify-start mr-auto text-2xl">
       {links.map(({ href, icon, label }) => (
         <a
           key={label}

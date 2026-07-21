@@ -1,6 +1,6 @@
-import { useGLTF, useAnimations } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef, useEffect, JSX } from "react";
+import { useRef, JSX } from "react";
 import { Group } from "three";
 type Object3DProps = JSX.IntrinsicElements["group"];
 
@@ -12,8 +12,7 @@ interface ModelProps extends Object3DProps {
 
 const Model: React.FC<ModelProps> = ({ position, rotation, scale = 1, ...props }) => {
   const group = useRef<Group>(null);
-  const { scene, animations } = useGLTF("/rocket_cat.glb");
-  const { actions } = useAnimations(animations, group);
+  const { scene } = useGLTF("/rocket_cat.glb");
 
   useFrame(() => {
     if (group.current) {
@@ -21,22 +20,7 @@ const Model: React.FC<ModelProps> = ({ position, rotation, scale = 1, ...props }
     }
   });
 
-  useEffect(() => {
-    if (actions && actions["Animation"]) {
-      actions["Animation"].play();
-    }
-  }, [actions]);
-
-  return (
-    <primitive 
-      ref={group} 
-      object={scene} 
-      position={position} 
-      rotation={rotation} 
-      scale={scale}
-      {...props} 
-    />
-  );
+  return <primitive ref={group} object={scene} position={position} rotation={rotation} scale={scale} {...props} />;
 };
 
 useGLTF.preload("/rocket_cat.glb");

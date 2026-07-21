@@ -1,16 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer utilities {
-  @keyframes starMove {
-    from {
-      transform: translateX(0px);
+  @keyframes scroll-hint {
+    0%,
+    100% {
+      transform: translateY(0);
     }
-    to {
-      transform: translateX(-2000px);
+    50% {
+      transform: translateY(10px);
     }
   }
 }
@@ -22,12 +21,15 @@ html {
 body {
   background: #000;
   color: #f1f5f9;
-  font-family:
-    "Inter",
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
   font-synthesis: none;
+}
+
+.scroll-indicator {
+  animation: scroll-hint 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator {
+    animation: none;
+  }
 }
