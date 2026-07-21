@@ -2,6 +2,12 @@ import "./global.css";
 import Navbar from "../components/Navbar";
 import { ReactNode } from "react";
 import type { Viewport } from "next";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap"
+});
 
 export const metadata = {
   title: "NekosanQ - Portfolio",
@@ -41,7 +47,7 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="ja" data-bs-theme="dark">
-      <body>
+      <body className={inter.className}>
         <Navbar />
         {children}
       </body>

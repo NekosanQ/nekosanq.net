@@ -9,11 +9,11 @@ const BigText: React.FC = () => {
 
   return (
     <div className="mt-40 md:mt-80 flex flex-col items-center lg:items-start text-center font-bold max-w-4xl mx-auto px-4">
-      <h1 className="text-5xl md:text-7xl bg-gradient-to-t from-slate-200 via-lime-100 to-slate-200 bg-clip-text text-transparent drop-shadow-[0_0_5px_rgba(255,255,255,0.6)]">
+      <h1 className="text-5xl md:text-7xl bg-gradient-to-r from-slate-100 via-emerald-200 to-slate-100 bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(52,211,153,0.2)]">
         <ReactTyped strings={["I'm NekosanQ"]} typeSpeed={50} showCursor={false} contentType="html" />
       </h1>
 
-      <p className="text-base md:text-2xl text-gray-400 mt-4">
+      <p className="text-base md:text-2xl font-medium text-slate-400 mt-4">
         <ReactTyped
           strings={["A developer and a student with many hobbies..."]}
           typeSpeed={30}

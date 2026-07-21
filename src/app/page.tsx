@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import StarBackground from "../components/StarBackground";
 import BigText from "../components/BigText";
 import HomeClient from "../components/HomeClient";
@@ -11,8 +12,8 @@ import Footer from "../components/Footer";
 
 const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
   <div className="flex items-center justify-center gap-4 mb-10">
-    <img src="icon.svg" alt={title} className="w-10 h-10 rounded-full filter invert drop-shadow-[0_0_5px_rgba(255,255,255,0.6)]" />
-    <h2 className="text-2xl md:text-3xl font-extrabold tracking-wide text-slate-200 drop-shadow-[0_0_5px_rgba(255,255,255,0.6)]">{title}</h2>
+    <Image src="/icon.svg" alt="" width={40} height={40} className="rounded-full" />
+    <h2 className="text-2xl md:text-3xl font-bold tracking-wide text-slate-100">{title}</h2>
   </div>
 );
 
