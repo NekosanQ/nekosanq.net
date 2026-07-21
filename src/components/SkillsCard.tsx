@@ -17,13 +17,16 @@ const icons = [
   { name: "JavaScript", url: "https://skillicons.dev/icons?i=javascript" },
   { name: "Discord.js", url: "https://skillicons.dev/icons?i=discordjs" },
   { name: "Python", url: "https://skillicons.dev/icons?i=python" },
+  { name: "C", url: "https://skillicons.dev/icons?i=c" },
   { name: "Java", url: "https://skillicons.dev/icons?i=java" },
   { name: "Kotlin", url: "https://skillicons.dev/icons?i=kotlin" },
   { name: "MySQL", url: "https://skillicons.dev/icons?i=mysql" },
   { name: "Linux", url: "https://skillicons.dev/icons?i=linux" },
   { name: "Prisma", url: "https://skillicons.dev/icons?i=prisma" },
   { name: "Bootstrap", url: "https://skillicons.dev/icons?i=bootstrap" },
-  { name: "Cloudflare", url: "https://skillicons.dev/icons?i=cloudflare" }
+  { name: "Cloudflare", url: "https://skillicons.dev/icons?i=cloudflare" },
+  { name: "AWS", url: "https://skillicons.dev/icons?i=aws" },
+  { name: "Proxmox", url: "https://cdn.simpleicons.org/proxmox/E57000" }
 ];
 
 const SkillsCard: React.FC = () => {
@@ -36,17 +39,17 @@ const SkillsCard: React.FC = () => {
       initial={{ scale: 0.8, opacity: 0 }}
       animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="relative mt-10 md:mt-0 md:ml-5 w-72 h-96 p-1 rounded-2xl bg-gradient-to-tr from-slate-500 via-lime-100 to-slate-500 shadow-2xl overflow-hidden"
+      className="relative mt-10 md:mt-0 md:ml-5 w-72 h-96 p-px rounded-2xl bg-gradient-to-br from-slate-400 via-emerald-100 to-slate-400 shadow-2xl overflow-hidden"
       style={{ perspective: "1000px" }}
     >
       <div
-        className="w-full h-full bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-700
-        rounded-2xl text-white flex flex-col p-6"
+        className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700
+        rounded-2xl text-slate-100 flex flex-col p-6"
       >
         {/* 上部タイトル */}
         <div className="flex items-center space-x-2 mb-4 justify-center">
           <FontAwesomeIcon icon={faTools} className="text-xl" />
-          <h1 className="text-xl font-semibold tracking-wide">My Skills</h1>
+          <h1 className="text-xl font-bold tracking-wide">My Skills</h1>
         </div>
 
         {/* 技術アイコン横並び */}
