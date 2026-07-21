@@ -9,6 +9,7 @@ import StacksCard from "../components/SkillsCard";
 import GroupAboutCard from "../components/GroupAbout";
 import Service from "../components/Service";
 import Footer from "../components/Footer";
+import ScrollReveal from "../components/ScrollReveal";
 
 const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
   <div className="flex items-center justify-center gap-4 mb-10">
@@ -32,23 +33,33 @@ const Home = () => {
           <BigText />
         </section>
 
-        <section className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-20" aria-hidden="true">
           <ScrollDownIndicator />
-        </section>
+        </div>
 
         {/* About Me セクション */}
         <section id="about" className="relative flex flex-col items-center justify-center md:py-32 md:-mt-96 space-y-20 max-w-7xl mx-auto px-4">
-          <SectionHeader title="About me" />
+          <ScrollReveal>
+            <SectionHeader title="About me" />
+          </ScrollReveal>
           <div className="flex flex-col lg:flex-row items-center justify-center gap-12 w-full">
-            <AboutMeCard />
-            <StacksCard />
-            <GroupAboutCard />
+            <ScrollReveal delay={0}>
+              <AboutMeCard />
+            </ScrollReveal>
+            <ScrollReveal delay={120}>
+              <StacksCard />
+            </ScrollReveal>
+            <ScrollReveal delay={240}>
+              <GroupAboutCard />
+            </ScrollReveal>
           </div>
         </section>
 
         {/* Service セクション */}
         <section id="service" className="relative flex flex-col items-center justify-center max-w-7xl mx-auto px-4 py-20">
-          <SectionHeader title="Nekonnection Service" />
+          <ScrollReveal>
+            <SectionHeader title="Nekonnection Service" />
+          </ScrollReveal>
           <Service />
         </section>
 

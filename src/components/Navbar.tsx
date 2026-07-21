@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, memo, useCallback } from "react";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faCircleUser, faCircleNodes, faEnvelope, IconDefinition } from "@fortawesome/free-solid-svg-icons";
@@ -14,7 +15,7 @@ const sections: Section[] = [
 ];
 
 const getLinkClasses = (isActive: boolean, isMobile: boolean) => {
-  const base = `flex items-center space-x-${isMobile ? "3" : "2"} transition-colors duration-200`;
+  const base = isMobile ? "flex items-center space-x-3 transition-colors duration-200" : "flex items-center space-x-2 transition-colors duration-200";
   const text = "text-white font-medium";
   const decoDesktop = `relative after:content-[''] after:absolute after:left-0 after:bottom-[-3px]
     after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full ${isActive ? "after:w-full" : "after:w-0"}`;
@@ -38,7 +39,7 @@ const NavItem = memo(
           key={`home${isMobile ? "-mobile" : ""}`}
           onClick={() => {
             window.scrollTo({ top: 0, behavior: "smooth" });
-            isMobile && onCloseMobile?.();
+            if (isMobile) onCloseMobile?.();
           }}
           {...commonProps}
         >
@@ -63,6 +64,8 @@ const NavItem = memo(
   }
 );
 
+NavItem.displayName = "NavItem";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeId, setActiveId] = useState("home");
@@ -79,7 +82,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
@@ -90,7 +93,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 z-50 w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
         {/* Logo */}
-        <img src="/icon.svg" alt="Logo" className="h-9 w-auto" />
+        <Image src="/icon.svg" alt="NekosanQ" width={36} height={36} className="h-9 w-auto" priority />
 
         {/* Desktop */}
         <div className="hidden md:flex space-x-8 text-base leading-none">
@@ -112,7 +115,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden mx-3 space-y-1 rounded-xl border border-white/15 px-4 py-3 text-base text-white shadow-xl backdrop-blur-md transition-all duration-300 ease-in-out ${
+        className={`md:hidden mx-3 space-y-1 overflow-hidden rounded-xl border border-white/15 px-4 py-3 text-base text-white shadow-xl backdrop-blur-md transition-all duration-300 ease-in-out ${
           isOpen
             ? "opacity-100 max-h-screen translate-y-0 pointer-events-auto bg-slate-950/90"
             : "opacity-0 max-h-0 -translate-y-4 pointer-events-none"

@@ -2,6 +2,8 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTools } from "@fortawesome/free-solid-svg-icons";
 
+/* eslint-disable @next/next/no-img-element -- These URLs return third-party generated icon sprites and are intentionally not processed by Next Image. */
+
 const skills = [
   "React",
   "Next.js",
@@ -31,7 +33,7 @@ const skillIconsUrl =
 
 const SkillsCard: React.FC = () => {
   return (
-    <div className="relative mt-10 md:mt-0 md:ml-5 w-72 h-96 p-px rounded-2xl bg-gradient-to-br from-slate-400 via-emerald-100 to-slate-400 shadow-2xl overflow-hidden">
+    <div className="relative mt-10 md:mt-0 md:ml-5 w-72 h-96 p-px rounded-2xl bg-gradient-to-br from-slate-400 via-white to-slate-400 shadow-2xl overflow-hidden">
       <div
         className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700
         rounded-2xl text-slate-100 flex flex-col p-6"
@@ -39,7 +41,7 @@ const SkillsCard: React.FC = () => {
         {/* 上部タイトル */}
         <div className="flex items-center space-x-2 mb-4 justify-center">
           <FontAwesomeIcon icon={faTools} className="text-xl" />
-          <h1 className="text-xl font-bold tracking-wide">My Skills</h1>
+          <h3 className="text-xl font-bold tracking-wide">My Skills</h3>
         </div>
 
         {/* 技術アイコン横並び */}

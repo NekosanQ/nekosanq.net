@@ -42,7 +42,7 @@ const StarGroup = ({ count, size, minDuration, maxDuration }: { count: number; s
       {stars.map((star) => (
         <div
           key={star.id}
-          className="absolute bg-white rounded-full"
+          className="star absolute bg-white rounded-full"
           style={{
             top: star.top,
             left: "100%",

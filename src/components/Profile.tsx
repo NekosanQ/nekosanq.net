@@ -5,12 +5,12 @@ import { faMapMarkerAlt, faUser } from "@fortawesome/free-solid-svg-icons";
 
 const ProfileCard: React.FC = () => {
   return (
-    <div className="relative w-72 h-96 p-px rounded-2xl bg-gradient-to-br from-slate-400 via-emerald-100 to-slate-400 shadow-2xl overflow-hidden">
+    <div className="relative w-72 h-96 p-px rounded-2xl bg-gradient-to-br from-slate-400 via-white to-slate-400 shadow-2xl overflow-hidden">
       <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 rounded-2xl text-slate-100 flex flex-col p-6">
         {/* 上部タイトル */}
         <div className="flex space-x-2 items-center mb-3 justify-center">
           <FontAwesomeIcon icon={faUser} className="text-xl " />
-          <h1 className="text-xl font-bold tracking-wide">Profile</h1>
+          <h3 className="text-xl font-bold tracking-wide">Profile</h3>
         </div>
 
         {/* 画像 */}
@@ -22,8 +22,8 @@ const ProfileCard: React.FC = () => {
 
         {/* テキスト */}
         <div className="space-y-3 flex-grow text-center">
-          <h2 className="text-3xl font-bold tracking-wide">NekosanQ</h2>
-          <p className="text-lg font-semibold text-emerald-200">Fullstack Developer</p>
+          <h4 className="text-3xl font-bold tracking-wide">NekosanQ</h4>
+          <p className="text-lg font-semibold text-white">Fullstack Developer</p>
           <p className="text-xs 2xl:text-sm text-slate-300 leading-relaxed">
             多趣味な学生です。
             <br />

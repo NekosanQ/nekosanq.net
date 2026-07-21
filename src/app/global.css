@@ -28,8 +28,37 @@ body {
   animation: scroll-hint 1.5s ease-in-out infinite;
 }
 
+.scroll-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.scroll-reveal--ready {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 700ms ease-out,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .scroll-indicator {
     animation: none;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .star {
+    animation: none !important;
   }
 }
