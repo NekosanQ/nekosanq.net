@@ -31,14 +31,15 @@ const SocialLink: React.FC = () => {
           rel="noopener noreferrer"
           className="
             w-10 h-10
-            rounded-md
-            bg-gradient-to-r from-slate-700 to-slate-900
-            text-gray-100
+            rounded-lg
+            border border-slate-600/70
+            bg-slate-900/80
+            text-slate-100
             shadow-md
-            transition-transform duration-300 ease-in-out
+            transition duration-300 ease-in-out
             flex items-center justify-center
-            hover:scale-110
-            hover:from-slate-600 hover:to-sky-900
+            hover:-translate-y-0.5
+            hover:border-emerald-400 hover:bg-emerald-500 hover:text-white
           "
           aria-label={label}
         >

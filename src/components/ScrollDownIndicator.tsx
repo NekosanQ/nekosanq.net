@@ -34,7 +34,7 @@ const ScrollDownIndicator = () => {
               ease: "easeInOut"
             }}
           >
-            <FontAwesomeIcon icon={faChevronDown} className="text-gray-500 text-3xl" />
+            <FontAwesomeIcon icon={faChevronDown} className="text-slate-500 text-3xl" />
           </motion.div>
         </motion.div>
       )}

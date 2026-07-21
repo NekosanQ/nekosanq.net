@@ -15,14 +15,14 @@ const ProfileCard: React.FC = () => {
       initial={{ scale: 0.8, opacity: 0 }}
       animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="relative w-72 h-96 p-1 rounded-2xl bg-gradient-to-tr from-slate-500 via-lime-100 to-slate-500 shadow-2xl overflow-hidden"
+      className="relative w-72 h-96 p-px rounded-2xl bg-gradient-to-br from-slate-400 via-emerald-100 to-slate-400 shadow-2xl overflow-hidden"
       style={{ perspective: "1000px" }}
     >
-      <div className="w-full h-full bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-700 rounded-2xl text-white flex flex-col p-6">
+      <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 rounded-2xl text-slate-100 flex flex-col p-6">
         {/* 上部タイトル */}
         <div className="flex space-x-2 items-center mb-3 justify-center">
           <FontAwesomeIcon icon={faUser} className="text-xl " />
-          <h1 className="text-xl font-semibold tracking-wide">Profile</h1>
+          <h1 className="text-xl font-bold tracking-wide">Profile</h1>
         </div>
 
         {/* 画像 */}
@@ -35,15 +35,15 @@ const ProfileCard: React.FC = () => {
         {/* テキスト */}
         <div className="space-y-3 flex-grow text-center">
           <h2 className="text-3xl font-bold tracking-wide">NekosanQ</h2>
-          <p className="text-lg font-semibold text-gray-300">Fullstack Developer</p>
-          <p className="text-xs 2xl:text-sm text-gray-300 leading-relaxed">
+          <p className="text-lg font-semibold text-emerald-200">Fullstack Developer</p>
+          <p className="text-xs 2xl:text-sm text-slate-300 leading-relaxed">
             多趣味な学生です。
             <br />
             様々なことに興味を持っています。
             <br />
             常に眠いです。
           </p>
-          <div className="flex items-center justify-center space-x-2 text-gray-300 mt-2">
+          <div className="flex items-center justify-center space-x-2 text-slate-300 mt-2">
             <FontAwesomeIcon icon={faMapMarkerAlt} className="text-lg" />
             <span>Oita Japan</span>
           </div>
