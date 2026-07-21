@@ -31,7 +31,7 @@ const skillIconsUrl =
 
 const SkillsCard: React.FC = () => {
   return (
-    <div className="relative mt-10 md:mt-0 md:ml-5 w-72 h-96 p-px rounded-2xl bg-gradient-to-br from-slate-400 via-emerald-100 to-slate-400 shadow-2xl overflow-hidden">
+    <div className="relative mt-10 md:mt-0 md:ml-5 w-72 h-96 p-px rounded-2xl bg-gradient-to-br from-slate-400 via-white to-slate-400 shadow-2xl overflow-hidden">
       <div
         className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700
         rounded-2xl text-slate-100 flex flex-col p-6"
