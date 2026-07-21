@@ -10,11 +10,20 @@ type ScrollRevealProps = {
 
 const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, className = "", delay = 0 }) => {
   const elementRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const rect = element.getBoundingClientRect();
+    const isInitiallyInView = rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+
+    setIsReady(true);
+    setIsVisible(isInitiallyInView);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -33,7 +42,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, className = "", d
   return (
     <div
       ref={elementRef}
-      className={`scroll-reveal ${isVisible ? "scroll-reveal--visible" : ""} ${className}`}
+      className={`scroll-reveal ${isReady ? "scroll-reveal--ready" : ""} ${isVisible ? "scroll-reveal--visible" : ""} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}

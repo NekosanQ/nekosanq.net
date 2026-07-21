@@ -1,13 +1,17 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const ThreeScene = dynamic(() => import("./ThreeScene"), { ssr: false });
 
 const HomeClient = () => {
   const [modelPosition, setModelPosition] = useState<[number, number, number]>([0, 0, 0]);
   const [isSceneReady, setIsSceneReady] = useState(false);
+  const [isInView, setIsInView] = useState(true);
+  const [isDocumentVisible, setIsDocumentVisible] = useState(true);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const updatePosition = () => {
@@ -24,6 +28,31 @@ const HomeClient = () => {
   }, []);
 
   useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(([entry]) => setIsInView(entry.isIntersecting), { threshold: 0.01 });
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateMotionPreference = () => setPrefersReducedMotion(mediaQuery.matches);
+    const updateVisibility = () => setIsDocumentVisible(document.visibilityState === "visible");
+
+    updateMotionPreference();
+    updateVisibility();
+    mediaQuery.addEventListener("change", updateMotionPreference);
+    document.addEventListener("visibilitychange", updateVisibility);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateMotionPreference);
+      document.removeEventListener("visibilitychange", updateVisibility);
+    };
+  }, []);
+
+  useEffect(() => {
     const loadScene = () => setIsSceneReady(true);
 
     if ("requestIdleCallback" in window) {
@@ -36,8 +65,10 @@ const HomeClient = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 z-10 pointer-events-none" aria-hidden="true">
-      {isSceneReady && <ThreeScene modelPosition={modelPosition} />}
+    <div ref={containerRef} className="absolute inset-0 z-10 pointer-events-none" aria-hidden="true">
+      {isSceneReady && (
+        <ThreeScene modelPosition={modelPosition} isActive={isInView && isDocumentVisible} prefersReducedMotion={prefersReducedMotion} />
+      )}
     </div>
   );
 };

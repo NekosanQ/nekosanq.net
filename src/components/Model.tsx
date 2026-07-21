@@ -8,15 +8,16 @@ interface ModelProps extends Object3DProps {
   position?: [number, number, number];
   rotation?: [number, number, number];
   scale?: number | [number, number, number];
+  shouldRotate?: boolean;
 }
 
-const Model: React.FC<ModelProps> = ({ position, rotation, scale = 1, ...props }) => {
+const Model: React.FC<ModelProps> = ({ position, rotation, scale = 1, shouldRotate = true, ...props }) => {
   const group = useRef<Group>(null);
   const { scene } = useGLTF("/rocket_cat.glb");
 
-  useFrame(() => {
-    if (group.current) {
-      group.current.rotation.y += 0.005;
+  useFrame((_, delta) => {
+    if (group.current && shouldRotate) {
+      group.current.rotation.y += delta * 0.3;
     }
   });
 

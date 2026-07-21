@@ -3,7 +3,7 @@ FROM node:22.15-alpine3.21 AS base
 
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
 # 開発環境
 FROM base AS development
@@ -23,19 +23,14 @@ RUN npm run build
 # 本番環境
 FROM node:22.15-alpine3.21 AS production
 ENV NODE_ENV=production
+ENV HOSTNAME=0.0.0.0
 WORKDIR /app
 
-# package.json と package-lock.json (あれば) をbuilderステージからコピー
-COPY --from=builder /app/package*.json ./
-# 本番用の依存関係のみをインストール
-RUN npm install --omit=dev
-
-# Next.jsのビルド済みファイルをbuilderステージからコピー
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/next.config.js ./next.config.js
+COPY --from=builder --chown=node:node /app/public ./public
+COPY --from=builder --chown=node:node /app/.next/standalone ./
+COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 
 EXPOSE 3000
+USER node
 
-# アプリを起動
-CMD ["npm", "run", "start"]
+CMD ["node", "server.js"]

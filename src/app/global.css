@@ -29,6 +29,11 @@ body {
 }
 
 .scroll-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.scroll-reveal--ready {
   opacity: 0;
   transform: translateY(36px);
   transition:
@@ -51,5 +56,9 @@ body {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .star {
+    animation: none !important;
   }
 }

@@ -10,7 +10,7 @@ const GroupCard: React.FC = () => {
         {/* 上部タイトル */}
         <div className="flex space-x-2 items-center mb-3 justify-center">
           <FontAwesomeIcon icon={faUsers} className="text-xl" />
-          <h1 className="text-xl font-bold tracking-wide">My Group</h1>
+          <h3 className="text-xl font-bold tracking-wide">My Group</h3>
         </div>
 
         {/* 画像 */}
@@ -22,7 +22,7 @@ const GroupCard: React.FC = () => {
 
         {/* テキスト */}
         <div className="space-y-3 flex-grow text-center">
-          <h2 className="text-3xl font-bold tracking-wide">Nekonection</h2>
+          <h4 className="text-3xl font-bold tracking-wide">Nekonection</h4>
           <p className="text-lg font-semibold text-white">皆と繋がる、サービスを。</p>
           <p className="text-xs 2xl:text-sm text-slate-300 leading-relaxed">
             様々なサービスを提供するグループ。

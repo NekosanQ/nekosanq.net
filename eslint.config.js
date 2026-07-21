@@ -1,66 +1,44 @@
 import js from "@eslint/js";
+import nextPlugin from "@next/eslint-plugin-next";
+import prettier from "eslint-config-prettier";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-import pluginReact from "eslint-plugin-react";
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-import prettierPlugin from "eslint-plugin-prettier";
-import { defineConfig } from "eslint/config";
 
-export default defineConfig([
+export default tseslint.config(
   {
-    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    ignores: [".next/**", "node_modules/**", "dist/**", "next-env.d.ts"]
+  },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  {
+    files: ["**/*.{js,mjs,ts,tsx}"],
     languageOptions: {
-      globals: globals.browser,
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname
+      globals: {
+        ...globals.browser,
+        ...globals.node
       }
     },
     plugins: {
-      js,
-      prettier: prettierPlugin,
-      "react-x": reactX,
-      "react-dom": reactDom
+      react,
+      "react-hooks": reactHooks,
+      "@next/next": nextPlugin
     },
-    extends: ["js/recommended"],
-    rules: {
-      // Prettierのルールを適用
-      "prettier/prettier": "error",
-      // React X / React DOM 推奨ルール
-      ...reactX.configs["recommended-typescript"].rules,
-      ...reactDom.configs.recommended.rules
-    }
-  },
-
-  // TypeScript + 型付きルール (本番向け)
-  {
-    files: ["**/*.{ts,tsx}"],
-    ...tseslint.config({
-      extends: [
-        // 本番向け推奨ルール（推奨 or strict を選択可能）
-        ...tseslint.configs.recommendedTypeChecked,
-        // ...tseslint.configs.strictTypeChecked,
-        // コードスタイルルールも含めるならこちらも
-        ...tseslint.configs.stylisticTypeChecked
-      ],
-      languageOptions: {
-        parserOptions: {
-          project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-          tsconfigRootDir: import.meta.dirname
-        }
+    settings: {
+      react: {
+        version: "detect"
       }
-    })
-  },
-
-  // React 推奨ルール (基本)
-  pluginReact.configs.flat.recommended,
-
-  // Prettierと互換性を保つための最後のルール
-  {
-    name: "prettier-config",
+    },
     rules: {
-      ...prettierPlugin.configs.recommended.rules
+      ...react.configs.recommended.rules,
+      ...reactHooks.configs.recommended.rules,
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs["core-web-vitals"].rules,
+      "react/react-in-jsx-scope": "off",
+      "react/no-unknown-property": "off",
+      "react/prop-types": "off"
     }
-  }
-]);
+  },
+  prettier
+);

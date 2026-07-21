@@ -33,9 +33,9 @@ const Home = () => {
           <BigText />
         </section>
 
-        <section className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-20" aria-hidden="true">
           <ScrollDownIndicator />
-        </section>
+        </div>
 
         {/* About Me セクション */}
         <section id="about" className="relative flex flex-col items-center justify-center md:py-32 md:-mt-96 space-y-20 max-w-7xl mx-auto px-4">

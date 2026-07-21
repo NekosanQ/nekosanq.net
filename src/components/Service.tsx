@@ -37,7 +37,7 @@ const services = [
 
 export const Service: React.FC = () => {
   return (
-    <section className="max-w-5xl w-full mx-auto px-2 sm:px-6 py-12 text-gray-100">
+    <div className="max-w-5xl w-full mx-auto px-2 sm:px-6 py-12 text-gray-100">
       <div className="flex flex-col space-y-28">
         {services.map(({ title, description, image, achievements, actionLabel, actionUrl }, idx) => {
           const isEven = idx % 2 === 0;
@@ -92,7 +92,7 @@ export const Service: React.FC = () => {
           );
         })}
       </div>
-    </section>
+    </div>
   );
 };
 
