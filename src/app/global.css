@@ -16,6 +16,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -36,6 +37,7 @@ body {
   font-synthesis: none;
   font-weight: 300;
   letter-spacing: -0.01em;
+  overflow-x: clip;
 }
 
 ::selection {
@@ -44,10 +46,18 @@ body {
 
 .network-backdrop {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100lvh;
+  overflow: hidden;
   z-index: 0;
   pointer-events: none;
   background: #050807;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  contain: strict;
 }
 
 .network-backdrop canvas {
