@@ -33,7 +33,7 @@ const GroupCard: React.FC = () => {
         {/* テキスト */}
         <div className="grid min-h-0 flex-1 grid-rows-[1rem_2.25rem_1.25rem_minmax(0,1fr)_2.25rem] gap-[0.65rem] text-left">
           <h3 className="text-xs font-light uppercase tracking-[0.24em] text-slate-400">My Group</h3>
-          <h4 className="text-3xl font-light tracking-[-0.04em]">Nekonection</h4>
+          <h4 className="text-2xl font-light tracking-[-0.04em]">Nekonection</h4>
           <p className="text-sm font-light tracking-wide text-emerald-200">みんなと繋がる、サービスを。</p>
           <p className="text-xs 2xl:text-sm text-slate-300 leading-relaxed">
             様々なサービスを提供するグループ。

@@ -27,7 +27,7 @@ const SkillsCard: React.FC = () => {
 
         <div className="grid min-h-0 flex-1 grid-rows-[1rem_2.25rem_1.25rem_minmax(0,1fr)_2.25rem] gap-[0.65rem] text-left">
           <h3 className="text-xs font-light uppercase tracking-[0.24em] text-slate-400">Tech Stack</h3>
-          <h4 className="text-3xl font-light tracking-[-0.04em]">アイデアを技術に</h4>
+          <h4 className="text-2xl font-light tracking-[-0.04em]">アイデアを技術に</h4>
           <p className="text-sm font-light tracking-wide text-emerald-200">From idea to implementation.</p>
 
           <div className="row-span-2 grid overflow-hidden border-y border-emerald-200/10" aria-label="Three capability fields">
