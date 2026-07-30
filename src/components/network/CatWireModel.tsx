@@ -92,6 +92,7 @@ export const CatWireModel = ({ pointerNdcRef }: CatWireModelProps) => {
     const desktopProgress = smoothstep(480, 1360, size.width);
     return {
       positionX: MathUtils.lerp(0.7, 4.62, desktopProgress),
+      positionY: MathUtils.lerp(-3.05, -2.5, desktopProgress),
       scale: MathUtils.lerp(0.7, 1.4, desktopProgress)
     };
   }, [size.width]);
@@ -104,7 +105,7 @@ export const CatWireModel = ({ pointerNdcRef }: CatWireModelProps) => {
   });
 
   return (
-    <group position={[responsiveLayout.positionX, -2.5, -3.6]} rotation={[0, Math.PI * 0.87, 0]} scale={responsiveLayout.scale}>
+    <group position={[responsiveLayout.positionX, responsiveLayout.positionY, -3.6]} rotation={[0, Math.PI * 0.87, 0]} scale={responsiveLayout.scale}>
       <mesh geometry={geometry.surface} material={depthMaterial} renderOrder={0} />
       <lineSegments geometry={geometry.edges} material={edgeMaterial} renderOrder={1} frustumCulled={false} />
       <points geometry={geometry.nodes} material={nodeMaterial} renderOrder={2} frustumCulled={false} />

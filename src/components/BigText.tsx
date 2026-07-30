@@ -20,9 +20,9 @@ const BigText: React.FC = () => {
   }, []);
 
   return (
-    <div className="hero-copy mx-auto mt-40 flex w-full max-w-5xl flex-col items-center px-5 text-center md:mt-80 lg:items-start lg:text-left">
+    <div className="hero-copy mx-auto mt-40 flex w-full max-w-5xl flex-col items-center px-4 text-center md:mt-80 md:px-5 lg:items-start lg:text-left">
       <div className="flex w-full flex-col items-center [&_.typed-cursor]:hidden lg:items-start">
-        <p className="mb-4 min-h-[1rem] text-[10px] font-medium uppercase tracking-[0.42em] text-emerald-300/80">
+        <p className="mb-4 min-h-[1rem] text-[9px] font-medium uppercase tracking-[0.24em] text-emerald-300/80 sm:text-[10px] sm:tracking-[0.42em]">
           {prefersReducedMotion ? (
             "Developer · Student · Creator"
           ) : (
@@ -37,7 +37,7 @@ const BigText: React.FC = () => {
           )}
         </p>
 
-        <h1 className="hero-title text-5xl font-normal tracking-[-0.055em] md:text-7xl lg:text-[5.6rem]">
+        <h1 className="hero-title whitespace-nowrap text-[clamp(2.5rem,12.5vw,3rem)] font-normal tracking-[-0.055em] md:text-7xl lg:text-[5.6rem]">
           {prefersReducedMotion ? (
             "I'm NekosanQ"
           ) : isEyebrowDone ? (

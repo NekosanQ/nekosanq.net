@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, memo, useCallback } from "react";
 import Image from "next/image";
+import brandIcon from "../../public/icon.svg";
 import { Menu, X } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faCircleUser, faCircleNodes, faEnvelope, IconDefinition } from "@fortawesome/free-solid-svg-icons";
@@ -89,10 +90,10 @@ const Navbar = () => {
   const closeMobile = () => setIsOpen(false);
 
   return (
-    <nav className="fixed left-0 top-0 z-50 w-full">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-7 lg:px-10">
-        <div className="top-brand-shell flex h-10 w-10 items-center justify-center rounded-full">
-          <Image src="/icon.svg" alt="NekosanQ" width={32} height={32} className="top-brand-icon h-8 w-8 rounded-full opacity-90" priority />
+    <nav className="fixed left-0 top-0 z-50 w-full pt-[env(safe-area-inset-top)]">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-7 lg:px-10">
+        <div className="top-brand-shell flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full">
+          <Image src={brandIcon} alt="NekosanQ" className="top-brand-icon h-8 w-8 rounded-full object-cover opacity-90" unoptimized priority />
         </div>
 
         <div className="nav-capsule hidden min-h-10 items-center gap-0.5 rounded-xl px-2 py-1 md:flex">
