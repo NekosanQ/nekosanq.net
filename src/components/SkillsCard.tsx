@@ -1,70 +1,50 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTools } from "@fortawesome/free-solid-svg-icons";
+import { faCloud, faCode, faGears, faMicrochip, faTools } from "@fortawesome/free-solid-svg-icons";
 
-/* eslint-disable @next/next/no-img-element -- These URLs return third-party generated icon sprites and are intentionally not processed by Next Image. */
-
-const skills = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "Node.js",
-  "Express",
-  "Tailwind CSS",
-  "Git",
-  "Docker",
-  "JavaScript",
-  "Discord.js",
-  "Python",
-  "C",
-  "Java",
-  "Kotlin",
-  "MySQL",
-  "Linux",
-  "Prisma",
-  "Bootstrap",
-  "Cloudflare",
-  "AWS",
-  "Proxmox"
+const capabilities = [
+  { label: "Web Development", description: "体験を設計し、形にする", icon: faCode },
+  { label: "Backend & Automation", description: "モダンで堅牢なシステムを構築する", icon: faGears },
+  { label: "Infrastructure", description: "ユーザー体験を支えるインフラを構築する", icon: faCloud }
 ];
-
-const skillIconsUrl =
-  "https://skillicons.dev/icons?i=react,nextjs,typescript,nodejs,express,tailwind,git,docker,javascript,discordjs,python,c,java,kotlin,mysql,linux,prisma,bootstrap,cloudflare,aws&perline=5";
 
 const SkillsCard: React.FC = () => {
   return (
-    <div className="relative mt-10 md:mt-0 md:ml-5 w-72 h-96 p-px rounded-2xl bg-gradient-to-br from-slate-400 via-white to-slate-400 shadow-2xl overflow-hidden">
-      <div
-        className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700
-        rounded-2xl text-slate-100 flex flex-col p-6"
-      >
-        {/* 上部タイトル */}
-        <div className="flex items-center space-x-2 mb-4 justify-center">
-          <FontAwesomeIcon icon={faTools} className="text-xl" />
-          <h3 className="text-xl font-bold tracking-wide">My Skills</h3>
+    <div className="cosmic-card about-card relative h-96 w-72 overflow-hidden">
+      <div className="cosmic-card__inner flex h-full w-full flex-col p-7 text-slate-100">
+        <div className="mb-5 flex min-h-7 items-center justify-between">
+          <span className="text-[10px] font-medium tracking-[0.32em] text-emerald-300/70">TECH STACK</span>
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg border border-emerald-200/10 bg-black/30 text-[0.72rem] leading-none text-emerald-200">
+            <FontAwesomeIcon icon={faTools} />
+          </span>
         </div>
 
-        {/* 技術アイコン横並び */}
-        <div className="flex flex-col justify-center items-center gap-3 flex-grow mt-4">
-          <img
-            src={skillIconsUrl}
-            alt={skills.slice(0, -1).join("、")}
-            title={skills.slice(0, -1).join(" / ")}
-            width={260}
-            height={208}
-            loading="lazy"
-            draggable={false}
-          />
-          <img
-            src="https://cdn.simpleicons.org/proxmox/E57000"
-            alt="Proxmox"
-            title="Proxmox"
-            className="h-10 w-10 object-contain"
-            width={40}
-            height={40}
-            loading="lazy"
-            draggable={false}
-          />
+        <div className="mb-4 flex min-h-20 items-center justify-start">
+          <div className="flex h-20 w-20 items-center justify-center rounded-full border border-emerald-200/15 bg-[radial-gradient(circle,rgba(16,185,129,0.12),rgba(0,0,0,0.3)_68%)] text-2xl text-emerald-200/90">
+            <FontAwesomeIcon icon={faMicrochip} />
+          </div>
+        </div>
+
+        <div className="grid min-h-0 flex-1 grid-rows-[1rem_2.25rem_1.25rem_minmax(0,1fr)_2.25rem] gap-[0.65rem] text-left">
+          <h3 className="text-xs font-light uppercase tracking-[0.24em] text-slate-400">Tech Stack</h3>
+          <h4 className="text-2xl font-light tracking-[-0.04em]">アイデアを技術に</h4>
+          <p className="text-sm font-light tracking-wide text-emerald-200">From idea to implementation.</p>
+
+          <div className="row-span-2 grid overflow-hidden border-y border-emerald-200/10" aria-label="Three capability fields">
+            {capabilities.map((capability, index) => (
+              <div
+                className="grid min-h-9 grid-cols-[1.25rem_1rem_minmax(0,1fr)] items-center gap-2 border-b border-white/[0.055] last:border-b-0"
+                key={capability.label}
+              >
+                <span className="font-mono text-[8px] tracking-[0.08em] text-emerald-300/45">0{index + 1}</span>
+                <FontAwesomeIcon icon={capability.icon} className="w-2.5 text-[10px] text-emerald-200/75" />
+                <span className="min-w-0">
+                  <strong className="block truncate text-[9px] font-normal tracking-[0.06em] text-slate-200/85">{capability.label}</strong>
+                  <small className="block truncate text-[7px] tracking-[0.035em] text-slate-400/65">{capability.description}</small>
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
