@@ -13,7 +13,7 @@ const SkillsCard: React.FC = () => {
     <div className="cosmic-card about-card relative h-96 w-72 overflow-hidden">
       <div className="cosmic-card__inner flex h-full w-full flex-col p-7 text-slate-100">
         <div className="mb-5 flex min-h-7 items-center justify-between">
-          <span className="text-[10px] font-medium tracking-[0.32em] text-emerald-300/70">TECH STACK</span>
+          <span className="text-[10px] font-medium tracking-[0.32em] text-emerald-300/70">02 / TECH STACK</span>
           <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg border border-emerald-200/10 bg-black/30 text-[0.72rem] leading-none text-emerald-200">
             <FontAwesomeIcon icon={faTools} />
           </span>
