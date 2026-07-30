@@ -18,16 +18,16 @@ const SocialLink: React.FC = () => {
     const context = gsap.context(() => {
       gsap.fromTo(
         container.children,
-        { autoAlpha: 0, y: 18, scale: 0.84, rotateX: 18 },
+        { autoAlpha: 0, y: 7, scale: 0.97, filter: "blur(7px)" },
         {
           autoAlpha: 1,
           y: 0,
           scale: 1,
-          rotateX: 0,
-          duration: 0.85,
-          stagger: 0.12,
-          ease: "back.out(1.7)",
-          clearProps: "transform"
+          filter: "blur(0px)",
+          duration: 1.45,
+          stagger: 0,
+          ease: "power2.out",
+          clearProps: "transform,filter"
         }
       );
     }, container);
@@ -49,7 +49,7 @@ const SocialLink: React.FC = () => {
             social-glass
             text-slate-300
             backdrop-blur-xl
-            transition duration-300 ease-in-out
+            transition-[border-color,background-color,color] duration-300 ease-in-out
             flex items-center justify-center
             hover:-translate-y-1
             hover:border-emerald-300/60 hover:bg-emerald-300/10 hover:text-emerald-200

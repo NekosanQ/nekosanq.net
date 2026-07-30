@@ -33,13 +33,13 @@ const createTerrain = (): TerrainData => {
   const pointSizes: number[] = [];
   const pointPhases: number[] = [];
   const edges: Array<[number, number, number, number]> = [];
-  const columns = 42;
+  const columns = 52;
   const rows = 110;
   const rowStep = 1.38;
 
   for (let row = 0; row < rows; row += 1) {
     const z = 8.2 - row * rowStep;
-    const width = 31.5 + row * 0.16;
+    const width = 45 + row * 0.22;
 
     for (let column = 0; column < columns; column += 1) {
       const normalizedColumn = column / (columns - 1);

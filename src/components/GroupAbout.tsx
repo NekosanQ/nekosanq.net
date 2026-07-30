@@ -31,7 +31,7 @@ const GroupCard: React.FC = () => {
         </div>
 
         {/* テキスト */}
-        <div className="flex min-h-0 flex-1 flex-col gap-[0.65rem] text-left">
+        <div className="grid min-h-0 flex-1 grid-rows-[1rem_2.25rem_1.25rem_minmax(0,1fr)_2.25rem] gap-[0.65rem] text-left">
           <h3 className="text-xs font-light uppercase tracking-[0.24em] text-slate-400">My Group</h3>
           <h4 className="text-3xl font-light tracking-[-0.04em]">Nekonection</h4>
           <p className="text-sm font-light tracking-wide text-emerald-200">みんなと繋がる、サービスを。</p>
@@ -42,7 +42,7 @@ const GroupCard: React.FC = () => {
             <br />
             Discordメインで活動中。
           </p>
-          <div className="mt-auto flex items-center justify-start gap-2 border-t border-white/10 pt-3.5 text-xs tracking-[0.14em] text-slate-400">
+          <div className="flex items-center justify-start gap-2 border-t border-white/10 pt-3.5 text-xs tracking-[0.14em] text-slate-400">
             <FontAwesomeIcon icon={faHandsHelping} className="text-xs text-emerald-300" />
             <span>開発者・運営募集中</span>
           </div>
