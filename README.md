@@ -1,66 +1,96 @@
-# 🐾 nekosanq.net
+# nekosanq.net
 
-**NekosanQ のポートフォリオサイト**です。  
-アニメーション・3D表現・インタラクティブなUIを取り入れた、モダンなWeb技術を使用することを目指したサイトです。
+[nekosanq.net](https://nekosanq.net) は、NekosanQのポートフォリオサイトです。
 
-🌐 [Webサイトを見る](https://www.nekosanq.net)
+ダークトーンとエメラルドグリーンを基調に、ノードとエッジで構成した3Dネットワーク、猫のワイヤーフレーム、スクロール連動カメラ、タイピング演出を組み合わせています。
 
----
+## 主な機能
 
-## 🚀 主な使用技術
+- Home → About → Serviceのシングルページ構成
+- React Three Fiberによるリアルタイム3D背景
+- ノードとエッジで表現した猫モデル
+- スクロール量に連動するカメラ移動とネットワークアニメーション
+- マウス位置へ反応するノードとエメラルドのハイライト
+- GSAPを利用したAbout・Service・SNSリンクの表示演出
+- 段階的に進行するヒーローのタイピングアニメーション
+- PC・タブレット・モバイル対応
+- `prefers-reduced-motion`対応
 
-### 🧩 アプリケーション構成（クライアント／サーバー）
+## 技術構成
 
-| 技術                            | 説明                                                            |
-| ------------------------------- | --------------------------------------------------------------- |
-| **TypeScript**                  | 型安全なコードで堅牢な開発を実現                                |
-| **Node.js**                     | バックエンド／Next.js実行環境                                   |
-| **React**                       | コンポーネントベースのUI構築ライブラリ                          |
-| **Next.js**                     | フルスタックなReactフレームワーク（SSR / SSG / API routes対応） |
-| **Tailwind CSS**                | ユーティリティファーストなCSSフレームワーク                     |
-| **Three.js**                    | WebGLを使った3Dグラフィックスの描画                             |
-| **Intersection Observer / CSS** | スクロール連動アニメーション                                    |
+| 分類      | 使用技術                                    |
+| --------- | ------------------------------------------- |
+| Framework | Next.js 16 / React 19 / TypeScript          |
+| Styling   | Tailwind CSS 3 / PostCSS                    |
+| 3D        | Three.js / React Three Fiber / Drei         |
+| Effects   | React Three Postprocessing / Postprocessing |
+| Animation | GSAP / React Typed                          |
+| Icons     | Font Awesome / Lucide React                 |
+| Quality   | ESLint / Prettier                           |
 
----
+## ディレクトリ構成
 
-### 🛠️ 開発・運用ツール
+```text
+src/
+├─ app/
+│  ├─ global.css
+│  ├─ layout.tsx
+│  └─ page.tsx
+└─ components/
+   ├─ network/
+   │  ├─ CatWireModel.tsx
+   │  ├─ catWireGeometry.ts
+   │  └─ catWireShaders.ts
+   ├─ CatNetworkBackdrop.tsx
+   ├─ BigText.tsx
+   ├─ Navbar.tsx
+   ├─ Profile.tsx
+   ├─ SkillsCard.tsx
+   ├─ GroupAbout.tsx
+   ├─ Service.tsx
+   └─ SocialMediaLink.tsx
 
-| ツール       | 用途                         |
-| ------------ | ---------------------------- |
-| **Docker**   | 開発・本番環境のコンテナ化   |
-| **Prettier** | 自動コードフォーマッタ       |
-| **ESLint**   | コードスタイルと品質チェック |
+public/
+└─ models/
+   ├─ network-cat.glb
+   └─ ATTRIBUTION.md
+```
 
----
+## ローカル開発
 
-## 📱 対応デバイス
-
-- ✅ スマートフォン（iOS / Android）
-- ✅ タブレット（縦・横両対応）
-- ✅ デスクトップ / ノートPC（各種解像度）<br>
-  スマートフォン、タブレット（縦・横）、PCなど、**全デバイスに対応したレスポンシブデザイン**を意識し、作成しました。
-
----
-
-## 💡 備考
-
-- コンポーネントについての設計は、理解度は低いのでクソコードになっているかもしれません。
-- CSSとIntersection Observerによる軽量なスクロール演出を実装しています。
-- 3D演出に Three.js を使用し、AIで生成したモデルを回転させています。
-- 本プロジェクトを通して、React, Next.js, Three.jsを勉強し始めたので、プログラムは大目に見てください。
-
-## 開発
+依存関係をインストールして開発サーバーを起動します。
 
 ```bash
 npm ci
 npm run dev
 ```
 
-品質チェックと本番ビルドは次のコマンドで実行できます。
+通常は `http://localhost:3000` で確認できます。ポートが使用中の場合、Next.jsは別の空きポートを使用します。
+
+## コマンド
+
+| コマンド         | 内容                                  |
+| ---------------- | ------------------------------------- |
+| `npm run dev`    | Turbopackを使用して開発サーバーを起動 |
+| `npm run lint`   | ESLintによる静的解析                  |
+| `npm run format` | Prettierによるフォーマット            |
+| `npm run check`  | ESLintとPrettierの検査                |
+| `npm run build`  | 本番用ビルド                          |
+| `npm run start`  | 本番ビルドを起動                      |
+
+変更後は最低限、次の検証を実行してください。
 
 ```bash
-npm run check
+npm run lint
 npm run build
 ```
 
----
+## 3Dモデル
+
+猫のネットワーク表現には、Creative Commons Attribution 3.0で提供されているモデルを利用しています。出典とライセンスの詳細は [`public/models/ATTRIBUTION.md`](public/models/ATTRIBUTION.md) を参照してください。
+
+モデルの元マテリアルやテクスチャは使用せず、ジオメトリをノードとエッジのネットワーク表現へ変換しています。
+
+## ライセンスとアセット
+
+ソースコードおよび画像アセットの再利用条件は、それぞれの権利者・ライセンスに従ってください。`NekosanQ.png`を含むプロフィール関連画像は、許可なく改変・再配布しないでください。
