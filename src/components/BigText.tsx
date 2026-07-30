@@ -18,12 +18,13 @@ const BigText: React.FC = () => {
   }, []);
 
   return (
-    <div className="mt-40 md:mt-80 flex flex-col items-center lg:items-start text-center font-bold max-w-4xl mx-auto px-4">
-      <h1 className="text-5xl md:text-7xl bg-gradient-to-r from-slate-100 via-emerald-200 to-slate-100 bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(52,211,153,0.2)]">
-        {prefersReducedMotion ? "I'm NekosanQ" : <ReactTyped strings={["I'm NekosanQ"]} typeSpeed={50} showCursor={false} />}
+    <div className="hero-copy mx-auto mt-40 flex max-w-5xl flex-col items-center px-5 text-center md:mt-80 lg:items-start">
+      <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.42em] text-emerald-300/80">Developer · Student · Creator</p>
+      <h1 className="hero-title text-5xl font-normal tracking-[-0.055em] md:text-7xl lg:text-[5.6rem]">
+        {prefersReducedMotion ? "I'm NekosanQ" : <ReactTyped strings={["I'm NekosanQ"]} typeSpeed={58} showCursor cursorChar="|" />}
       </h1>
 
-      <p className="text-base md:text-2xl font-medium text-slate-400 mt-4">
+      <p className="mt-5 max-w-md text-sm font-light leading-relaxed tracking-[0.02em] text-slate-400 md:text-lg">
         {prefersReducedMotion ? (
           "A developer and a student with many hobbies..."
         ) : (
@@ -31,14 +32,15 @@ const BigText: React.FC = () => {
             strings={["A developer and a student with many hobbies..."]}
             typeSpeed={30}
             startDelay={1000}
-            showCursor={false}
+            showCursor
+            cursorChar="_"
             onComplete={() => setIsTypedDone(true)}
           />
         )}
       </p>
 
       {(isTypedDone || prefersReducedMotion) && (
-        <div className="mt-6 transition-opacity duration-1000 ease-out opacity-100">
+        <div className="mt-8 opacity-100 transition-opacity duration-1000 ease-out">
           <SocialLink />
         </div>
       )}

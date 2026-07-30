@@ -2,15 +2,9 @@ import "./global.css";
 import Navbar from "../components/Navbar";
 import { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap"
-});
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.nekosanq.net"),
+  metadataBase: new URL("https://nekosanq.net"),
   title: "NekosanQ - Portfolio",
   description: "NekosanQのポートフォリオサイトです。",
   keywords: ["NekosanQ", "Nekonnection", "Portfolio"],
@@ -48,7 +42,7 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="ja">
-      <body className={inter.className}>
+      <body>
         <Navbar />
         {children}
       </body>

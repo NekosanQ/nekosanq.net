@@ -1,8 +1,6 @@
 import React from "react";
-import Image from "next/image";
-import StarBackground from "../components/StarBackground";
+import CatNetworkBackdrop from "../components/CatNetworkBackdrop";
 import BigText from "../components/BigText";
-import HomeClient from "../components/HomeClient";
 import ScrollDownIndicator from "../components/ScrollDownIndicator";
 import AboutMeCard from "../components/Profile";
 import StacksCard from "../components/SkillsCard";
@@ -12,24 +10,21 @@ import Footer from "../components/Footer";
 import ScrollReveal from "../components/ScrollReveal";
 
 const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
-  <div className="flex items-center justify-center gap-4 mb-10">
-    <Image src="/icon.svg" alt="" width={40} height={40} className="rounded-full" />
-    <h2 className="text-2xl md:text-3xl font-bold tracking-wide text-slate-100">{title}</h2>
+  <div className="section-heading mb-16 flex flex-col items-center justify-center gap-4">
+    <h2 className="text-2xl font-extralight tracking-[-0.035em] text-slate-100 md:text-4xl">{title}</h2>
+    <span className="h-px w-16 bg-emerald-300/50" aria-hidden="true" />
   </div>
 );
 
 const Home = () => {
   return (
-    <div id="top" className="relative min-h-screen overflow-x-hidden bg-black text-white">
+    <div id="top" className="relative min-h-screen overflow-x-hidden bg-[#030607] text-white">
       {/* 背景 */}
-      <div className="fixed inset-0 z-0">
-        <StarBackground />
-      </div>
+      <CatNetworkBackdrop />
 
       {/* メインコンテンツ */}
       <main className="relative z-10">
-        <section id="home" className="relative min-h-screen">
-          <HomeClient />
+        <section id="home" className="hero-section relative min-h-[100svh]">
           <BigText />
         </section>
 
@@ -38,25 +33,26 @@ const Home = () => {
         </div>
 
         {/* About Me セクション */}
-        <section id="about" className="relative flex flex-col items-center justify-center md:py-32 md:-mt-96 space-y-20 max-w-7xl mx-auto px-4">
-          <ScrollReveal>
-            <SectionHeader title="About me" />
-          </ScrollReveal>
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-12 w-full">
-            <ScrollReveal delay={0}>
+        <section
+          id="about"
+          className="about-section relative z-20 mx-auto flex min-h-[100svh] w-full max-w-7xl flex-col items-center justify-center px-4 py-28 md:py-36"
+        >
+          <SectionHeader title="About me" />
+          <div className="about-grid grid w-full grid-cols-1 place-items-center gap-8 lg:grid-cols-3">
+            <ScrollReveal className="about-item" variant="safeCard">
               <AboutMeCard />
             </ScrollReveal>
-            <ScrollReveal delay={120}>
+            <ScrollReveal className="about-item" delay={220} variant="safeCard">
               <StacksCard />
             </ScrollReveal>
-            <ScrollReveal delay={240}>
+            <ScrollReveal className="about-item" delay={440} variant="safeCard">
               <GroupAboutCard />
             </ScrollReveal>
           </div>
         </section>
 
         {/* Service セクション */}
-        <section id="service" className="relative flex flex-col items-center justify-center max-w-7xl mx-auto px-4 py-20">
+        <section id="service" className="content-section relative mx-auto flex max-w-7xl flex-col items-center justify-center px-4 py-28 md:py-36">
           <ScrollReveal>
             <SectionHeader title="Nekonnection Service" />
           </ScrollReveal>
