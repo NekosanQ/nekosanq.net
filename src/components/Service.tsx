@@ -18,7 +18,7 @@ const services = [
     title: "猫咲 紬",
     description: "「可愛くて便利」\n2022年2月22日に作成し、サービスを開始したDiscordBOTです。",
     image: "/tsumugi.png",
-    achievements: [{ label: "導入数", value: "約1,500サーバー" }],
+    achievements: [{ label: "導入数", value: "1,500サーバー以上" }],
     actionLabel: "導入する",
     actionUrl: "https://discord.com/oauth2/authorize?client_id=945369875516366909&permissions=8&scope=applications.commands+bot"
   },
@@ -28,7 +28,7 @@ const services = [
     image: "/JHS.png",
     achievements: [
       { label: "最高同時接続", value: "100人以上" },
-      { label: "1週間のワイプ参加者", value: "約 1,000人" }
+      { label: "1週間のワイプ参加者", value: "1,000人以上" }
     ],
     actionLabel: "参加する",
     actionUrl: "https://discord.gg/qhfFgnT7rr"
